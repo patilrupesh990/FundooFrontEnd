@@ -1,0 +1,76 @@
+<div class="medium-list " style="align-items: center;">
+    <div clas="list-viewer-wrapper"><br><br><br><br>
+        <div class="row threed">
+            <h1 style=" text-align: center;text-transform: capitalize;text-decoration-style: wavy;">Fundoo Registration
+            </h1>
+        </div>
+        <form [formGroup]="registerForm" (ngSubmit)="registerForm.valid && onRegisterSubmit()" class="example-form"
+            noval>
+            <div class="form-items">
+                <div class="form-container rupesh">
+                    <mat-form-field >
+                        <input id="firstname" matInput formControlName="firstname" [(ngModel)]="user.firstname"
+                            placeholder="Enter First Name"  autocomplete="off" required>
+                    </mat-form-field>
+                </div>
+                <div class="form-container">
+                    <mat-form-field>
+                        <input id="lastname" matInput formControlName="lastname" [(ngModel)]="user.lastname"
+                            placeholder="Enter Last Name"  autocomplete="off">
+                    </mat-form-field>
+                </div>
+                <div class="form-container">
+                    <mat-form-field>
+                        <mat-icon matPrefix>perm_identity</mat-icon>
+                        <input id="userName" matInput formControlName="userName" [(ngModel)]="user.userName"
+                            placeholder="Choose User Name"  autocomplete="off">
+                    </mat-form-field>
+                </div>
+                <div class="form-container">
+                    <mat-form-field>
+                        <mat-icon matPrefix> mail_outline</mat-icon>
+                        <input id="email" matInput formControlName="email" [(ngModel)]="user.email"
+                            placeholder="Enter email "  autocomplete="off" required>
+                    </mat-form-field>
+                </div>
+                <div class="form-container">
+                    <mat-form-field>
+                        <mat-icon matPrefix>lock</mat-icon>
+                        <input id="password" matInput formControlName="password" [(ngModel)]="user.password"
+                            placeholder="Enter password" [type]="hide ?'password':'text'"  autocomplete="off" />
+                        <mat-icon matSuffix (click)="hide=!hide">
+                            {{hide? 'visibility' : 'visibility_off'}}
+                        </mat-icon>
+                    </mat-form-field>
+                </div>
+                <div class="form-container">
+                    <mat-form-field>
+                        <mat-icon matPrefix>phone_iphone</mat-icon>
+                        <input id="phNo" matInput formControlName="phNo" [(ngModel)]="user.phNo"
+                            placeholder="Enter Mobile No"  autocomplete="off" required>
+                    </mat-form-field>
+                </div>
+                <div class="form-container">
+                    <mat-radio-group matInput formControlName="gender">
+                        <mat-radio-button value="male">Male</mat-radio-button>
+                        <mat-radio-button value="female">Female</mat-radio-button>
+                        <mat-radio-button value="other">Other</mat-radio-button>
+                    </mat-radio-group>
+                </div>
+                <div>
+                    <mat-form-field>
+                        <input matInput formControlName="dateOfBirth" [matDatepicker]="dateOfBirth"
+                            placeholder="select date of birth" required>
+                        <mat-datepicker-toggle matSuffix [for]="dateOfBirth"></mat-datepicker-toggle>
+                        <mat-datepicker #dateOfBirth></mat-datepicker>
+                    </mat-form-field>
+                </div>
+                <div>
+                    <button style="font-size: 20px;font-weight: bold;color: whitesmoke;" [disabled]="!registerForm.valid" mat-button type="submit" class="divider">Register</button>
+                </div>
+                <a href="#" style="align-content:space-around;">Alrady Register?</a>
+
+            </div>
+        </form>
+    </div>
+</div>
