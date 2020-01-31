@@ -1,0 +1,70 @@
+.example-form {
+    // min-width: 150px;
+    background-color: transparent;
+    width: 500px;
+    border-radius: 15px;
+    box-shadow: 2px 4px 7px 1px;
+    top: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+  }
+
+.form-items{
+  padding: 20px;
+}
+  .example-full-width {
+    width: 100%;
+  }  
+  .medium-list{
+      margin: auto;
+      width: 600;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding:10px;
+  }
+
+  .divider{
+    margin-top: 10 px !important ;
+    background-color:blue;
+    margin: 20px 10px;
+    width: 100%;
+    height: 50px;
+    text-decoration-color: white;
+  }
+  
+  .list-viewer-wrapper{
+      border: 1px solid rgba(0,0,0,.03);;
+      box-shadow: 0 2px 2px rgba(0,0,0,.24), 0 0 2px rgba(0,0,0,.12);
+      text-align: center;
+      color: whitesmoke;
+  }
+  .list-header-title{
+      color: rgba(233, 114, 114, 0.54);
+      background: rgba(0,0,0,.03);
+      padding: 8px 20px;
+      font-weight: bold;
+  }
+  .form-container{
+      display: flex;
+    flex-direction: column;
+    
+  }
+  .threed {
+    color: opacity($color: blue);
+    color: rgba($color:blue, $alpha: 1.0);
+ 
+    text-shadow: 0 1px 0 #beade4, 0 2px 0 #8f4a4a,
+             0 3px 0 #eee9e9, 0 4px 0 #e76969,
+             0 5px 0 #aee9c4, 0 6px 0 #ecb6b6,
+             0 7px 0 #e92c2c, 0 8px 7px rgba(0, 0, 0, 0.4),
+             0 9px 10px rgba(0, 0, 0, 0.2);
+}
+  mat-radio-button{
+    padding: 10px;
+  }
+  ::placeholder{
+    color: whitesmoke;
+  }
