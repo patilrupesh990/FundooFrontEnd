@@ -2,12 +2,18 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { RegistrationComponent } from './registration/registration.component';
 import { LoginComponent } from './login/login.component';
+import { UserActivateComponent } from './user-activate/user-activate.component';
+import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
+import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
 
 
 const routes: Routes = [
   {path:'register',component:RegistrationComponent},
-  {path:'login',component:LoginComponent}
-
+  {path:'forgotpassword',component:ForgotpasswordComponent},
+  {path:'login',component:LoginComponent},
+  {path:'',component:LoginComponent},
+  {path:'active/:token',component:UserActivateComponent},
+  {path:'reset-password/:token',component:ResetpasswordComponent}
 ];
 
 @NgModule({
@@ -15,4 +21,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents=[RegistrationComponent,LoginComponent]
+export const routingComponents=[RegistrationComponent,LoginComponent,UserActivateComponent,ForgotpasswordComponent]
