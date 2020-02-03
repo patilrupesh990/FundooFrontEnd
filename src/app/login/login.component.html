@@ -1,12 +1,16 @@
 <div class="medium-list " style="align-items: center;">
     <div clas="list-viewer-wrapper"><br><br><br><br>
-        <div class="row threed">
-            <h1 style=" text-align: center;text-transform: capitalize;text-decoration-style: wavy;">Fundoo Login
-            </h1>
-        </div>
+      
         <form [formGroup]="loginForm" (ngSubmit)="loginForm.valid && onloginSubmit()" class="example-form" noval>
             <div class="form-items">
+                <div class="row threed">
+                    <h1 style="font-style: oblique; text-align: center;text-transform: capitalize;text-decoration-style: wavy;">Fundoo Login
+                    </h1>
+                </div>
                 <div class="form-container rupesh"><br><br>
+                    <ngx-spinner *ngIf="showSpinner"  bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-scale-multiple">
+                        <p style="font-size: 20px; color: white">Loading...</p>
+                    </ngx-spinner>
                     <mat-form-field>
                         <mat-icon matPrefix>perm_identity</mat-icon>
                         <input id="email" matInput formControlName="email" [(ngModel)]="user.email"
@@ -27,8 +31,8 @@
                     <button [disabled]="!loginForm.valid" style="font-size: 20px;font-weight: bold;color: whitesmoke;" mat-button type="submit" class="divider">Login</button>
                 </div>
                 <div>
-                    <a href="http://localhost:4200/register">New User??</a><br>
-                    <a href="#">Forgot Password??</a>
+                    <a href="http://192.168.1.175:4200/register">New User??</a><br>
+                    <a href="http://192.168.1.175:4200/forgotpassword">Forgot Password??</a>
                 </div>
             </div>
         </form>
