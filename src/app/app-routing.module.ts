@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { UserActivateComponent } from './user-activate/user-activate.component';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 const routes: Routes = [
@@ -13,7 +14,8 @@ const routes: Routes = [
   {path:'login',component:LoginComponent},
   {path:'',component:LoginComponent},
   {path:'active/:token',component:UserActivateComponent},
-  {path:'reset-password/:token',component:ResetpasswordComponent}
+  {path:'reset-password/:token',component:ResetpasswordComponent},
+  {path:'**',component:PageNotFoundComponent}
 ];
 
 @NgModule({
@@ -21,4 +23,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents=[RegistrationComponent,LoginComponent,UserActivateComponent,ForgotpasswordComponent]
+export const routingComponents=[RegistrationComponent,LoginComponent,UserActivateComponent,ForgotpasswordComponent,ResetpasswordComponent]
