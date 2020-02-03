@@ -3,9 +3,15 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
-};
+  production: true,
+  userApiURL:'http://localhost:8086/users',
 
+  registerURL:'register',
+  loginURL:'login',
+  userActivURL:'register/activ',
+  forgotPasswordURL:'verify-user',
+  resetPasswordURL:'reset-password'
+};
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
