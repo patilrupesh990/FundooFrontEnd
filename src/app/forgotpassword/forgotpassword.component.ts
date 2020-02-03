@@ -24,6 +24,7 @@ export class ForgotpasswordComponent implements OnInit {
  
   onSubmit() {
     console.log("---------------------------------------");
+    showSpinner:true;
     this.userservice.forgotPasswordVerifyMail(this.forgotpasswordForm.value).subscribe((user) => {
       console.log(user);
       this.matSnackBar.open('Reset Password Mail Sent to Your Mail!!','ok',{duration:5000});
@@ -32,11 +33,12 @@ export class ForgotpasswordComponent implements OnInit {
         console.log(error)
         this.matSnackBar.open('Invalid Email','ok',{duration:5000});
       });
+      this.showSpinner=false;
     // alert(this.user.firstName + ' ' + this.user.email + ' ' + this.user.password);
   }
 
   ngOnInit() {
-
+     this.spinner.show();
       this.forgotpasswordForm = this.formBuilder.group({
       'email': [this.user.email, [Validators.required]]
   });
