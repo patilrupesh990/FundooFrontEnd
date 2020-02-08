@@ -1,37 +1,51 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { RegistrationComponent } from './registration/registration.component';
-import { ReactiveFormsModule, FormBuilder, FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-import { RouterModule, Routes } from '@angular/router';
-import { Pipe, PipeTransform } from '@angular/core';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {UserService} from './services/userservice.service';
-
 import {
   MatInputModule,
-  MatPaginatorModule,
-  MatProgressSpinnerModule,
-  MatSortModule,
-  MatTableModule,
   MatIconModule,
   MatButtonModule, MatToolbarModule,
   MatCardModule,
   MatFormFieldModule,
   MatDatepickerModule,
   MatNativeDateModule,
-  MatRadioModule
+  MatRadioModule,
+  MatSidenavModule  
 } from "@angular/material";
-import { LoginComponent } from './login/login.component';
+import { AppRoutingModule,routingComponents } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { ReactiveFormsModule, FormBuilder, FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule, Routes } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {UserService} from './services/userservice.service';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatDialogModule } from '@angular/material/dialog';
+import {MatListModule} from '@angular/material/list';
+import { NgxSpinnerModule } from "ngx-spinner";
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { ToolbaarComponent } from './components/toolbaar/toolbaar.component';
+import { ForgotpasswordComponent } from './components/forgotpassword/forgotpassword.component';
+import { UserActivateComponent } from './components/user-activate/user-activate.component';
+import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { ToolbarComponent } from './components/dashboard/toolbar/toolbar.component';
+import { SidenavbarComponent } from './components/dashboard/sidenavbar/sidenavbar.component';
+import { SideNavService } from './services/sidenavservice.service';
+
+
 @NgModule({
   declarations: [
     AppComponent,
-    RegistrationComponent,
-    LoginComponent,
-
+    routingComponents,
+    UserActivateComponent,
+    ForgotpasswordComponent,
+    ResetpasswordComponent,
+    PageNotFoundComponent,
+    DashboardComponent,
+    ToolbarComponent,
+    SidenavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -49,9 +63,17 @@ import { LoginComponent } from './login/login.component';
     MatFormFieldModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatRadioModule
+    MatRadioModule,
+    MatCardModule,
+    MatSnackBarModule,MatDialogModule,
+    MatSidenavModule,
+    MatListModule,
+    NgxSpinnerModule,
+    FlexLayoutModule
+  
+    
     ],
-  providers: [],
+  providers: [SideNavService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
