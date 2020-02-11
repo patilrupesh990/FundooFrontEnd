@@ -1,12 +1,20 @@
+<div class="container">
+  <a [routerLink]="['/create-note']">
+  <div  class="note-div" style="text-decoration:none; ">
+      <span><img src="assets/icon/lightbulb-icon-light-bulb-3.svg" style="height: 30px;padding-left: 30px; padding-top: 10px; width: 30px;"></span>
+      <span style=" padding-left: 30px;">Notes</span>
+  </div></a>
+  <a [routerLink]="['/register']">
+    <div  class="reminder-div" style="text-decoration:none; ">
+        <span><img src="assets/icon/notification-512.png" style="height: 30px;padding-left: 30px; padding-top: 10px; width: 30px;"></span>
+        <span style=" padding-left: 30px; ">Reminders</span>
+    </div></a>
+</div>
 
-<mat-sidenav-container class='app-drawer-container' fullscreen>
-    <mat-sidenav #sidenav mode="side">cmm</mat-sidenav>
-      
-    <mat-sidenav-content>
-      <app-toolbar flexLayout="column"></app-toolbar>
-
-    </mat-sidenav-content>
-  </mat-sidenav-container>
-  
-
- 
+<!-- <mat-sidenav-container style=" height: 670px; ">
+       
+  <mat-sidenav  mode="side">
+      <app-sidenavbar fxFlex></app-sidenavbar>
+  </mat-sidenav>
+  <mat-sidenav-content style="background-color: blue; "><router-outlet></router-outlet></mat-sidenav-content>
+</mat-sidenav-container> -->

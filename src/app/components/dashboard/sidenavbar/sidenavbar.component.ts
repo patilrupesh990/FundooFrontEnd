@@ -12,9 +12,7 @@ export class SidenavbarComponent implements OnInit {
   constructor(private sideNavService:SideNavService) { }
 
   ngOnInit() {
-    this.sideNavService.sideNavToggleSubject.subscribe(()=> {
-      this.sidenav.toggle();
-    });
+   
   }
 
 }
