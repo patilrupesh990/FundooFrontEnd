@@ -24,15 +24,15 @@ import {MatDialogModule } from '@angular/material/dialog';
 import {MatListModule} from '@angular/material/list';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { ToolbaarComponent } from './components/toolbaar/toolbaar.component';
-import { ForgotpasswordComponent } from './components/forgotpassword/forgotpassword.component';
-import { UserActivateComponent } from './components/user-activate/user-activate.component';
-import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
+import { ForgotpasswordComponent } from './components/authentication/forgotpassword/forgotpassword.component';
+import { UserActivateComponent } from './components/authentication/user-activate/user-activate.component';
+import { ResetpasswordComponent } from './components/authentication/resetpassword/resetpassword.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ToolbarComponent } from './components/dashboard/toolbar/toolbar.component';
 import { SidenavbarComponent } from './components/dashboard/sidenavbar/sidenavbar.component';
 import { SideNavService } from './services/sidenavservice.service';
+import { CreateNotesComponent } from './components/dashboard/notes/create-notes/create-notes.component';
 
 
 @NgModule({
@@ -45,7 +45,8 @@ import { SideNavService } from './services/sidenavservice.service';
     PageNotFoundComponent,
     DashboardComponent,
     ToolbarComponent,
-    SidenavbarComponent
+    SidenavbarComponent,
+    CreateNotesComponent
   ],
   imports: [
     BrowserModule,
