@@ -1,15 +1,15 @@
 import { Component, OnInit, NgModule } from '@angular/core';
 import { SidenavbarComponent } from './sidenavbar/sidenavbar.component';
-import { ToolbaarComponent } from '../toolbaar/toolbaar.component';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatSidenavContent } from '@angular/material';
+import { ToolbarComponent } from './toolbar/toolbar.component';
 
 @NgModule({
   declarations:[
     SidenavbarComponent,
-    ToolbaarComponent
+    ToolbarComponent
   ],
   imports:[
     CommonModule,
@@ -19,7 +19,7 @@ import { MatSidenavContent } from '@angular/material';
   ],
   exports:[
     SidenavbarComponent,
-    ToolbaarComponent
+    ToolbarComponent
   ]
 
 })
@@ -31,10 +31,19 @@ import { MatSidenavContent } from '@angular/material';
 })
 
 export class DashboardComponent implements OnInit {
-
+   opened:boolean;
+  
+  public opened2 = '';
   constructor() { }
+  
+  nameEventHander($event: any) {
+   
+    this.opened2 = $event;
+    console.log("2",this.opened2);
+  }
 
   ngOnInit() {
+    
   }
 
 }
