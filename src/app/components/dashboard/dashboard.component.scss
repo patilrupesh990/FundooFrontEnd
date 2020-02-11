@@ -1,3 +1,13 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+  position: fixed;
+}
 :host {
   display: flex;
   flex-direction: column;
@@ -8,6 +18,21 @@
   padding: 20px;
 }
 
-.side-nave{
+app-sidenavbar{
+  padding: 0px;
+}
+side-nave{
   border: lightgray 1px;
+}
+mat-sidenav-container{
+  // height: 100%;
+}
+mat-sidenav,mat-sidenav-content{
+  padding: 0px;
+}
+mat-sidenav{
+  margin-top: 0px;
+  border-color: 1px whitesmoke;
+  background-color:white;
+  width: 300px;
 }
