@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" id="Content" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="192px" height="192px" viewBox="0 0 192 192" enable-background="new 0 0 192 192" xml:space="preserve">
+	<defs>
+		<clipPath id="clip-path">
+			<path d="M128,172H32a12.03527,12.03527,0,0,1-12-12V32A12.03528,12.03528,0,0,1,32,20H160a12.03527,12.03527,0,0,1,12,12v96Z" style="fill: none" />
+		</clipPath>
+		<linearGradient id="linear-gradient" x1="68.57805" y1="125.87695" x2="150.79266" y2="43.66235" gradientTransform="matrix(1, 0, 0, -1, 0, 192)" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#bf360c" stop-opacity="0.1" />
+			<stop offset="1" stop-color="#bf360c" stop-opacity="0.02" />
+		</linearGradient>
+		<filter id="material-drop-shadow" x="-24" y="-24" width="192" height="192">
+			<feGaussianBlur result="blur" stdDeviation="4" in="SourceGraphic" />
+			<feOffset result="offsetBlurredGraphic" dx="4" dy="4" in="blur" />
+		</filter>
+		<radialGradient id="radial-gradient" cx="24.5854" cy="167.1055" r="177.0986" gradientTransform="matrix(1, 0, 0, -1, 0, 192)" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#fff" stop-opacity="0.1" />
+			<stop offset="1" stop-color="#fff" stop-opacity="0" />
+		</radialGradient>
+	</defs>
+	<title>Google Keep</title>
+	<g>
+		<g>
+			<g>
+				<g style="clip-path: url(#clip-path)">
+					<path d="M128,172H32a12.03527,12.03527,0,0,1-12-12V32A12.03528,12.03528,0,0,1,32,20H160a12.03527,12.03527,0,0,1,12,12v96l-26,18Z" style="fill: #f4b400" />
+				</g>
+				<g style="clip-path: url(#clip-path)">
+					<path d="M172,105.09,121.46,54.55a35.99174,35.99174,0,1,0-50.92,50.88L78,112.91V140l32,32h62Z" style="fill: url(#linear-gradient)" />
+				</g>
+				<g style="clip-path: url(#clip-path)">
+					<g>
+						<g style="opacity: 0.2;filter: url(#material-drop-shadow)">
+							<path d="M128,172V140a11.99669,11.99669,0,0,1,12-12h32Z" style="fill: #3e2723" />
+						</g>
+						<path d="M128,172V140a11.99669,11.99669,0,0,1,12-12h32Z" style="fill: #fada80" />
+					</g>
+				</g>
+				<g style="clip-path: url(#clip-path)">
+					<path d="M140,129a11.99669,11.99669,0,0,0-12,12v-1a11.99669,11.99669,0,0,1,12-12h32v1Z" style="fill: #fff;fill-opacity: 0.200000002980232" />
+				</g>
+				<g style="clip-path: url(#clip-path)">
+					<g>
+						<g>
+							<path d="M96,44a35.99562,35.99562,0,0,0-18,67.17V140h8v8h22v-8h8V109.93A35.99788,35.99788,0,0,0,96,44Zm12,88H86v-8h22Zm0-26.71V116H86v-9.85a28.00589,28.00589,0,1,1,22-.86Z" style="fill: #3e2723;opacity: 0.1;filter: url(#material-drop-shadow)" />
+							<path d="M96,44a35.99562,35.99562,0,0,0-18,67.17V140h8v8h22v-8h8V109.93A35.99788,35.99788,0,0,0,96,44Zm12,88H86v-8h22Zm0-26.71V116H86v-9.85a28.00589,28.00589,0,1,1,22-.86Z" style="fill: #f1f1f1" />
+						</g>
+						<path d="M86,133h22v-1H86Zm0-16h22v-1H86Zm0-10.85A28.02376,28.02376,0,0,1,68.02,80.4c0,.2-.02.4-.02.61a28.05269,28.05269,0,0,0,18,26.15Zm22-.86v1A28.03662,28.03662,0,0,0,124,81c0-.2-.01-.39-.02-.59A28.00651,28.00651,0,0,1,108,105.29ZM96,44A36.00288,36.00288,0,0,0,60,80c0,.14.01.28.01.43a35.99435,35.99435,0,0,1,71.98.01c0-.15.01-.29.01-.44A36.00288,36.00288,0,0,0,96,44Z" style="fill: #fff;fill-opacity: 0.400000005960465" />
+						<path d="M78,111.17A35.98941,35.98941,0,0,1,60.01,80.43c0,.19-.01.38-.01.57a35.96459,35.96459,0,0,0,18,31.17ZM86,125h22v-1H86ZM96,53a28.01749,28.01749,0,0,1,27.98,27.41c0-.14.02-.27.02-.41a28,28,0,1,0-56,0c0,.13.01.26.02.39A28.01365,28.01365,0,0,1,96,53Zm12,88h8v-1h-8Zm23.99-60.56A35.9347,35.9347,0,0,1,116,109.93v1A35.95108,35.95108,0,0,0,132,81C132,80.81,131.99,80.63,131.99,80.44ZM86,140H78v1h8Zm0,9h22v-1H86Z" style="fill: #bf360c;fill-opacity: 0.100000001490116" />
+					</g>
+				</g>
+				<g style="clip-path: url(#clip-path)">
+					<path d="M161.14,20H30.86A10.8572,10.8572,0,0,0,20,30.86V161.15a10.8636,10.8636,0,0,0,10.86,10.86H128l44-44V30.86A10.8572,10.8572,0,0,0,161.14,20Z" style="fill: none" />
+				</g>
+				<g style="clip-path: url(#clip-path)">
+					<g>
+						<path d="M160,20H32A12.03528,12.03528,0,0,0,20,32v1A12.03528,12.03528,0,0,1,32,21H160a12.03527,12.03527,0,0,1,12,12V32A12.03527,12.03527,0,0,0,160,20Z" style="fill: #fff;fill-opacity: 0.200000002980232" />
+						<path d="M32,171a12.03527,12.03527,0,0,1-12-12v1a12.03527,12.03527,0,0,0,12,12h96l44-44h-1l-43,43Z" style="fill: #bf360c;fill-opacity: 0.100000001490116" />
+					</g>
+				</g>
+			</g>
+			<path d="M128,172H32a12.03527,12.03527,0,0,1-12-12V32A12.03528,12.03528,0,0,1,32,20H160a12.03527,12.03527,0,0,1,12,12v96Z" style="fill: url(#radial-gradient)" />
+		</g>
+		<rect width="192" height="192" style="fill: none" />
+	</g>
+</svg>

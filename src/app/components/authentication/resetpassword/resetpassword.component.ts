@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { UserService } from '../../services/userservice.service';
 import { FormControl } from '@angular/forms';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {Router,ParamMap} from '@angular/router';
@@ -8,6 +7,7 @@ import { environment } from 'src/environments/environment';
 import { NgxSpinnerService } from "ngx-spinner";
 import { ActivatedRoute } from "@angular/router";
 import { UserModel } from 'src/app/model/User.model';
+import { UserService } from 'src/app/services/userservice.service';
 
 
 @Component({

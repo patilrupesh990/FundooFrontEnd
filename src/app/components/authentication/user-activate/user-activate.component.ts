@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { UserService } from '../../services/userservice.service';
 import { FormControl } from '@angular/forms';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { ActivatedRoute } from "@angular/router";
@@ -8,6 +7,7 @@ import {Router,ParamMap} from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { NgxSpinnerService } from "ngx-spinner";
 import { UserModel } from 'src/app/model/User.model';
+import { UserService } from 'src/app/services/userservice.service';
 
 @Component({
   selector: 'app-user-activate',
@@ -28,8 +28,10 @@ export class UserActivateComponent implements OnInit {
     this.userservice.activateUser(this.activeForm,this.token).subscribe((user) => {
       this.route2.navigate(['/login']);
       this.matSnackBar.open('Your Account Verified SuccessFully','ok',{duration:4000});
+      this.showSpinner=false;
     },
       (error: any) => {
+        this.showSpinner=false;
         this.matSnackBar.open('Bad Creaditial','ok',{duration:4000});
         console.log(error)
       });
