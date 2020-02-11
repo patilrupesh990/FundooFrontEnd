@@ -1,19 +1,13 @@
-<mat-toolbar style=" border: 1px solid lightgray;" class="docs-navbar-header" fullscreen>
-    <mat-toolbar-row>
-                <mat-icon (click)="drawer.toggle()">menu</mat-icon>
-                <img src="assets/logo/icons8-google-keep-50.png">
-                <span>Fundoo</span>
-                <div class class="searchdiv">
-                    <mat-icon prefix>search</mat-icon>
-                    <input type="text" class="search" placeholder="Search"
-                        style="border: none; height: 30px;width: 500px;">
-                </div>
-    </mat-toolbar-row>
-</mat-toolbar>
+<mat-toolbar class="container" style=" border-bottom: 1px solid lightgray; margin: auto; height: 80px; width: 100%;" class="docs-navbar-header" fullscreen>
 
-<!-- <mat-toolbar color="primary" role="heading">
-    <button mat-icon-button (click)="clickMenu()">
-      <mat-icon>menu</mat-icon>
-    </button>
-    <button mat-button>{{ title }}</button>
-  </mat-toolbar> -->
+  <mat-toolbar-row>
+    <button mat-icon-button (click)="ontoggel(opened)">
+    <mat-icon>menu</mat-icon></button>
+    <img src="assets/logo/512px-Google_Keep_icon.svg.png" style="height: 40px;width: 40px; padding-right: 20px; padding-left: 20px;">
+    <span class="title">Fundoo</span>
+    <div class="searchbar">
+      <mat-icon prefix>search</mat-icon>
+      <input type="text" class="searchbox"  placeholder="Search" style="height: 40px;width: 800px;">
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>

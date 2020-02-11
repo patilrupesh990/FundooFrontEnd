@@ -2,6 +2,29 @@ header{
     padding: 20px;
     background-color: skyblue;
 }
+mat-icon {
+  background-repeat: no-repeat;
+  display: inline-block;
+  fill: currentColor;
+  font-size: 40px;
+padding-right: 40px;
+  }
+  .title{
+    padding-top: 30px;
+    display: inline-block;
+    font-family: 'Product Sans',Arial,sans-serif;
+    font-style: oblique;
+    font-weight: bold;
+    color: rgb(82, 81, 81);
+    font-size: 30px;
+    line-height: 24px;
+  }
+
+  .container{
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+  }
 .logo
 {
   width: 60px;
@@ -10,13 +33,30 @@ header{
 }
 .mat-toolbar
 {
-    height: 60px auto;
+    height: 170px auto;
     width: 100% auto;
     margin-top: 0px; 
+    
 }
-.searchdiv{
+img{
+
+  padding-top: 20px;
+}
+
+.searchbar{
+  
   margin-left: 100px;
   height: auto;
   width: auto;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+input{
+  outline: none;
+  border: none;
+}
+input:focus  {
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,0.16),0 0 0 1px rgba(0,0,0,0.08);
 }
 
