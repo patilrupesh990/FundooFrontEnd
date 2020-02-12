@@ -20,7 +20,7 @@ const routes: Routes = [
   {path:'',component:LoginComponent},
   {path:'active/:token',component:UserActivateComponent},
   {path:'reset-password/:token',component:ResetpasswordComponent},
- {path:'create-note',component:CreateNotesComponent},
+
   {
     path:'dashboard',component:DashboardComponent,
     children:[{
@@ -31,7 +31,12 @@ const routes: Routes = [
     {
       path:'sidenave',
       component:SidenavbarComponent
-    }] 
+    },
+    {
+      path:'create-note',
+      component:CreateNotesComponent
+    }
+  ] 
 },
   {path:'**',component:PageNotFoundComponent},
 
