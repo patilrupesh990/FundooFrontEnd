@@ -1,13 +1,24 @@
-<mat-toolbar class="container" style=" border-bottom: 1px solid lightgray; margin: auto; height: 80px; width: 100%;" class="docs-navbar-header" fullscreen>
+<mat-toolbar class="container" style=" border-bottom: 1px solid lightgray; margin: auto; height: 80px; width: 100%;"
+  class="docs-navbar-header" fullscreen>
 
   <mat-toolbar-row>
     <button mat-icon-button (click)="ontoggel(opened)">
-    <mat-icon>menu</mat-icon></button>
-    <img src="assets/logo/512px-Google_Keep_icon.svg.png" style="height: 40px;width: 40px; padding-right: 20px; padding-left: 20px;">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <img src="assets/logo/512px-Google_Keep_icon.svg.png"
+      style="height: 40px;width: 40px; padding-right: 20px; padding-left: 20px;">
     <span class="title">Fundoo</span>
+   
     <div class="searchbar">
-      <mat-icon prefix>search</mat-icon>
-      <input type="text" class="searchbox"  placeholder="Search" style="height: 40px;width: 800px;">
+      <div Class="searchbox">
+        <div>
+          <mat-icon style="font-size: 30px;" prefix>search</mat-icon>
+        </div>
+        <div>
+          <input type="text" class="searchboxinput" placeholder="Search" style="height: 40px;width: 800px;">
+        </div>
+      </div>
     </div>
+
   </mat-toolbar-row>
 </mat-toolbar>

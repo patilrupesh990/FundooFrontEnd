@@ -17,22 +17,27 @@
 .content{
   padding: 20px;
 }
+.app-sidenavbar{
+  width: 300px;
+  display: list-item;
+  justify-self: start;
+  margin: 0px;
 
-app-sidenavbar{
-  padding: 0px;
 }
+
 side-nave{
   border: lightgray 1px;
 }
 mat-sidenav-container{
-  // height: 100%;
+  display: flex;
 }
-mat-sidenav,mat-sidenav-content{
-  padding: 0px;
+mat-sidenav-content{
+  justify-content: center;
 }
 mat-sidenav{
   margin-top: 0px;
   border-color: 1px whitesmoke;
   background-color:white;
-  width: 300px;
+  width: 355px;
+  justify-content: center !important;
 }
