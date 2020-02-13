@@ -22,7 +22,7 @@ const routes: Routes = [
   {path:'reset-password/:token',component:ResetpasswordComponent},
 
   {
-    path:'dashboard',component:DashboardComponent,
+    path:'dashboard/:token',component:DashboardComponent,
     children:[{
         path:'toolbar',
         component:ToolbarComponent
@@ -33,7 +33,7 @@ const routes: Routes = [
       component:SidenavbarComponent
     },
     {
-      path:'create-note',
+      path:'',
       component:CreateNotesComponent
     }
   ] 
