@@ -19,14 +19,16 @@ export class LoginComponent implements OnInit {
   hide = true;
   constructor(private formBuilder: FormBuilder, private router: Router, private userservice: UserService,private spinner: NgxSpinnerService,private matSnackBar:MatSnackBar) { }
  
- 
   onloginSubmit() {
     this.showSpinner=true;
     console.log("---------------------------------------");
-    this.router.navigate(['/dashboard']);
-    this.userservice.loginUser(this.loginForm.value).subscribe((user) => {
-      console.log(user);
+    
+    this.userservice.loginUser(this.loginForm.value).subscribe(response => {
+
       this.matSnackBar.open('Successfully Loged In Wellcome','ok',{duration:5000});
+      
+      sessionStorage.setItem("token",response.token);
+      this.router.navigate(['/dashboard/'+response.token]);
       this.showSpinner=false;
     },
       (error: any) => {
