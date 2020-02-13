@@ -24,7 +24,7 @@ export class UserService {
   loginUser(user:any):Observable<any>
   {
     console.log("calling to.."+`${this.userApiUrl}/${environment.loginURL}`);
-    return this.httpservice.post(`${this.userApiUrl}/${environment.loginURL}`,user,{responseType: 'text'});
+    return this.httpservice.post(`${this.userApiUrl}/${environment.loginURL}`,user,this.httpOtions);
     //return this._http.post(`${this.userApiUrl}/${environment.loginURL}`,user,{responseType: 'text'});
   }
 
@@ -47,4 +47,5 @@ export class UserService {
     return this.httpservice.put(`${this.userApiUrl}/${environment.resetPasswordURL}/${token}`,user,{responseType: 'text'});
     // return this._http.put(`${this.userApiUrl}/${environment.resetPasswordURL}/${token}`,user, {responseType: 'text'});
   }
+  
 }
