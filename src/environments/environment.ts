@@ -10,7 +10,12 @@ export const environment = {
   loginURL:'login',
   userActivURL:'register/activ',
   forgotPasswordURL:'verify-user',
-  resetPasswordURL:'reset-password'
+  resetPasswordURL:'reset-password',
+
+  notesApiURL:'http://localhost:8088/notes',
+  createNote:'create',
+
+
 };
 /*
  * For easier debugging in development mode, you can import the following file
