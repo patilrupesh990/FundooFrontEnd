@@ -67,9 +67,29 @@
    outline:none;
 }
 
-.iconlist{
-    margin-top: 9%;
-}
+
 input{
-    height: 40px;
+    border: none;
+    height: 1.2em;
+    width: 29em;
+    margin-bottom: 20px;
+    padding: 16px;
+    font-weight: bolder;
+}
+
+#title::placeholder {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+}
+#desc::placeholder {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+}
+#title{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+}
+#desc{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
 }
