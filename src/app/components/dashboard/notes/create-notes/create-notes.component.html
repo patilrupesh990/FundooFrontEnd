@@ -17,7 +17,7 @@
         </mat-card>
     </div>
 </div> -->
-<div id="main" fxFlex>
+<!-- <div id="main" >
     <mat-card *ngIf="!open" style=" width: 29em; border-radius: 13px;" (click)="onClickCreateNoteOpen()" fxLayout="row">
         <input matInput class="searchBar" placeholder="take a note">
     </mat-card >
@@ -28,28 +28,24 @@
             <input style="border: none; " matInput type="text" class="input" placeholder="Take a note"
             [(ngModel)]="note.description">
         </mat-card>  
-</div>
-
-<!-- <div class="main">
-    <mat-card style=" width: 29em; border-radius: 13px;" *ngIf="!popup" (click)="onPopup()" class="mat-card"
-        fxLayout="row">
-        <input matInput class="searchBar" placeholder="take a note">
-    </mat-card>
-
-    <mat-card style=" width: 29em; border-radius: 13px;" *ngIf="popup" class="mat1-card" fxLayout="column">
-
-        <textarea style="border: none;" matInput type="text" class="input" placeholder="Title"
-            [(ngModel)]="note.title"></textarea>
-
-        <textarea style="border: none; " matInput type="text" class="input" placeholder="take a note"
-            [(ngModel)]="note.description"></textarea>
-
-
-        <div class="icon" style="display:flex; justify-content: space-between; width: 100%;">
-            <div class="iconlist">
-                <app-iconlist style="width: 80%; display: flex; justify-content: space-between;"></app-iconlist>
-            </div>
-            <div (click)="onSubmit()">close</div>
-        </div>
-    </mat-card>
 </div> -->
+
+<div class="main" fxFlex>
+    <mat-card style=" width: 50em; border-radius: 13px;" *ngIf="!open" (click)="onClickCreateNoteOpen()" class="mat-card"
+        fxLayout="row">
+        <input matInput class="searchBar" class="input" placeholder="Take a note...">
+    </mat-card>
+
+    <mat-card style=" width: 50em; border-radius: 13px;" *ngIf="open" class="mat1-card" fxLayout="column">
+
+        <input id="title" style="border: none;" matInput type="text" class="input" placeholder="Title"
+            [(ngModel)]="note.title">
+
+        <input id="desc" style="border: none; " matInput type="text" class="input" placeholder="Take a note"
+            [(ngModel)]="note.description">
+
+            <div class="icon" style="display:flex; justify-content: space-between; width: 100%;">
+                <div button   (click)="onSubmit()||open=!open"><button style="border: none; background-color: whitesmoke; height: 20px; width: 50px;">close</button></div>
+            </div>
+    </mat-card>
+</div>
