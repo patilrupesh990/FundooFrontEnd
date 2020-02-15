@@ -1,0 +1,24 @@
+<div style="flex-wrap: wrap;">
+    
+    <div class="getAllNotes" fxLayout="{{view}}" fxFlexOffset="15" >
+    <mat-card class="getNotesMat" [ngStyle]="{'background':note.color}"
+      *ngFor="let note of notes" >
+       
+       
+        <div>
+            <div class="tile">
+                {{notes.title}}
+            </div>
+  
+            <div class="tile">
+                {{notes.description}}
+            </div>
+        </div>
+
+        <!-- <div>
+            <app-iconlist></app-iconlist>
+        </div> -->
+    </mat-card>
+   
+  
+  </div></div>
