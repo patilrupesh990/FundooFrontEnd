@@ -23,7 +23,6 @@
     width: 100%;
     left: 0;
     top: 0;
-    
   display: flex;
   margin: 0px 0px 0px 0px;
   align-items: center;
@@ -80,6 +79,9 @@ mat-radio-button {
 }
 .mat-card{
   margin:30px 30px ;
-  padding: 10px 10px 40px 40px;
-  border-radius: 10px 10px 50px 50px;
+  padding: 20px 20px 20px 20px;
+  border-radius: 10px 10px 10px 10px;
+}
+button:disabled{
+  background: rgb(238, 220, 250);
 }
