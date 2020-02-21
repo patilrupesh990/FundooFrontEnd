@@ -1,1 +1,2 @@
-<p>pin-notes works!</p>
+<a><img id="pin" src="assets/icon/unpin.svg" *ngIf="!pinned" (click)="onPin()"/></a>
+<a><img id="pin" src="assets/icon/pinned.svg" *ngIf="pinned" (click)="onPin()"/></a>
