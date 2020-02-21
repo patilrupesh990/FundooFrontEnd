@@ -79,7 +79,9 @@ padding: 20px;
 mat-radio-button{
   padding: 10px;
 }
-
+button:disabled{
+  background: rgb(238, 220, 250);
+}
 
 .login-main{
   margin-top: 10%;
