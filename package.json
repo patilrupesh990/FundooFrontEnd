@@ -24,6 +24,7 @@
     "@angular/router": "~8.2.14",
     "bootstrap": "^4.0.0",
     "jquery": "^3.4.1",
+    "mat-color-picker": "^1.4.3",
     "materialize-css": "^1.0.0-rc.2",
     "ngx-bootstrap": "^5.3.2",
     "ngx-spinner": "^8.1.0",
