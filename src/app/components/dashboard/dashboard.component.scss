@@ -33,6 +33,7 @@ mat-sidenav-container{
 }
 mat-sidenav-content{
   justify-content: center;
+  overflow: scroll;
 }
 mat-sidenav{
   margin-top: 0px;
