@@ -20,7 +20,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {UserService} from './services/userservice.service';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
-import {MatDialogModule } from '@angular/material/dialog';
+import {MatDialogModule, MatDialog } from '@angular/material/dialog';
 import {MatListModule} from '@angular/material/list';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -32,7 +32,14 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ToolbarComponent } from './components/dashboard/toolbar/toolbar.component';
 import { SidenavbarComponent } from './components/dashboard/sidenavbar/sidenavbar.component';
 import { SideNavService } from './services/sidenavservice.service';
+import { NotesIconlistComponent } from './components/dashboard/notes/notes-iconlist/notes-iconlist.component';
 import { CreateNotesComponent } from './components/dashboard/notes/create-notes/create-notes.component';
+import { PinNotesComponent } from './components/dashboard/notes/pin-notes/pin-notes.component';
+import { DisplayNotesComponent } from './components/dashboard/notes/display-notes/display-notes.component';
+import { NotesComponent } from './components/dashboard/notes/notes.component';
+import {  MatTooltipModule} from '@angular/material/tooltip';
+import { MatMenuModule} from '@angular/material/menu';
+import { UpdatenotesComponent } from './components/dashboard/notes/updatenotes/updatenotes.component';
 
 
 @NgModule({
@@ -46,7 +53,12 @@ import { CreateNotesComponent } from './components/dashboard/notes/create-notes/
     DashboardComponent,
     ToolbarComponent,
     SidenavbarComponent,
-    CreateNotesComponent
+    CreateNotesComponent,
+    PinNotesComponent,
+    DisplayNotesComponent,
+    NotesIconlistComponent,
+    NotesComponent,
+    UpdatenotesComponent,
   ],
   imports: [
     BrowserModule,
@@ -70,9 +82,12 @@ import { CreateNotesComponent } from './components/dashboard/notes/create-notes/
     MatSidenavModule,
     MatListModule,
     NgxSpinnerModule,
-    FlexLayoutModule
-  
-    
+    FlexLayoutModule,
+    MatTooltipModule,
+    MatMenuModule,
+    ],
+    entryComponents:[
+      UpdatenotesComponent
     ],
   providers: [SideNavService],
   bootstrap: [AppComponent]
