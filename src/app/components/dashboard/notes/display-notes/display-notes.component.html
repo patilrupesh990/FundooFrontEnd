@@ -1,24 +1,58 @@
-<div style="flex-wrap: wrap;">
-    
-    <div class="getAllNotes" fxLayout="{{view}}" fxFlexOffset="15" >
-    <mat-card class="getNotesMat" [ngStyle]="{'background':note.color}"
-      *ngFor="let note of notes" >
-       
-       
-        <div>
-            <div class="tile">
-                {{notes.title}}
-            </div>
-  
-            <div class="tile">
-                {{notes.description}}
-            </div>
-        </div>
+<div class="bock-d">
+<div class="pin">
+    Pinned Notes
+</div>
+<div class="main-div">
+    <!-- <span>
+            Pinned Notes
+        </span> -->
+    <div class="getAllNotes" *ngFor="let note of pinNotes" fxLayout="{{view}}" [fxLayoutAlign]="center"
+        fxFlexOffset="2">
+        <mat-card class="getNotesMat" [ngStyle]="{'background-color':note.color}">
+            <div id="matdiv">
+                <div class="pindiv" (click)="onClicksetNoteId(note.id)">
+                    <app-pin-notes class="pin"></app-pin-notes>
+                </div>
 
-        <!-- <div>
-            <app-iconlist></app-iconlist>
-        </div> -->
-    </mat-card>
-   
-  
-  </div></div>
+                <mat-card-title (click)="openDialog()">
+                    {{note.title}}
+                </mat-card-title>
+
+                <mat-card-content (click)="openDialog()">
+                    {{note.description}}
+                </mat-card-content>
+
+                <div class="icon">
+                    <app-notes-iconlist class="app-note-list"></app-notes-iconlist>
+                </div>
+            </div>
+        </mat-card>
+    </div>
+
+</div>
+</div>
+<span>
+    Others</span>
+<div class="main-div">
+    <div class="getAllNotes" *ngFor="let note of notes" fxLayout="{{view}}" [fxLayoutAlign]="center" fxFlexOffset="3">
+        <mat-card class="getNotesMat" [ngStyle]="{'background':note.color}">
+            <div id="matdiv">
+                <div class="pindiv" (click)="onClicksetNoteId(note.id,note.isPin)">
+                    <app-pin-notes class="pin"></app-pin-notes>
+                </div>
+
+                <mat-card-title (click)="openDialog()">
+                    {{note.title}}
+                </mat-card-title>
+
+                <mat-card-content (click)="openDialog()">
+                    {{note.description}}
+                </mat-card-content>
+
+                <div class="icon">
+                    <app-notes-iconlist class="app-note-list"></app-notes-iconlist>
+                </div>
+            </div>
+        </mat-card>
+    </div>
+</div>
