@@ -42,16 +42,34 @@ export class NoteserviceService {
     const params = new URLSearchParams();
     console.log("note id----->"+note);
     params.set('noteId', note);
-    return this.httpservice.put(`${environment.notesApiURL}/${environment.pinNote}?noteId=${note}`, {}, { headers: new HttpHeaders().set('token', localStorage.token)});
+    return this.httpservice.put(`${environment.notesApiURL}/${environment.pinNote}?noteId=${note}`, {}, { headers: new HttpHeaders().set('token', localStorage.token)}).pipe(tap(() => {
+      this._autoRefresh$.next();
+    }));
   }
 
   getPinnedNotes(){
     return this.httpservice.get(`${environment.notesApiURL}/${environment.getpinnedNotes}`, { headers: new HttpHeaders().set('token', localStorage.token) });
   }
 
+  updateNotes(note:any){
+    return this.httpservice.put(`${environment.notesApiURL}/${environment.updateNotes}`,note,{headers:new HttpHeaders().set('token',localStorage.token)}).pipe(tap(()=>{
+        this._autoRefresh$.next();
+    }))
+  }
+
+  trashNote(note:any){
+    return this.httpservice.put(`${environment.notesApiURL}/${environment.trashNote}?noteId=${note}`,{},{ headers: new HttpHeaders().set('token', localStorage.token) }).pipe(tap(() => {
+      this._autoRefresh$.next();
+    }));
+  }
+
+
 
   updateNoteId(noteId){
     this.content.next(noteId);
+  }
+  getNoteId(){
+    return this.noteId;
   }
   updateNotePin(ispin){
     this.pincontent.next(ispin);
