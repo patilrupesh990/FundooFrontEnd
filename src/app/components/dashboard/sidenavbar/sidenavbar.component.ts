@@ -14,5 +14,10 @@ export class SidenavbarComponent implements OnInit {
   ngOnInit() {
    
   }
-
+  changeColor(event){
+    event.srcElement.classList.add("active-color");
+    // setTimeout(()=>{
+    //   event.srcElement.classList.add("rotate");
+    // },0)
+  }
 }
