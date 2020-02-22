@@ -6,25 +6,25 @@ mat-icon {
   background-repeat: no-repeat;
   display: inline-block;
   fill: currentColor;
-  font-size: 40px;
-padding-right: 40px;
+  font-size: 30px;
+  padding-left: 15px;
+  padding-top: 21px;
   }
   .title{
-    padding-top: 30px;
+    padding-top: 22px;
     display: inline-block;
-    font-family: 'Product Sans',Arial,sans-serif;
-    font-style: oblique;
-    font-weight: bold;
+    font-family: 'Product Sans',Arial,sans-serif;;
     color: rgb(82, 81, 81);
-    font-size: 30px;
+    font-size: 25px;
     line-height: 24px;
+    padding-right: 80px;
   }
 
   .container{
     display: flex;
-    flex-direction: row;
     height: 100%;
   }
+  
 .logo
 {
   width: 60px;
@@ -38,20 +38,38 @@ padding-right: 40px;
     margin-top: 0px; 
     
 }
+.search{
+  margin-top: 20px;
+}
 img{
 
   padding-top: 20px;
+  margin-left: 15px;
 }
-
+mat-card{
+  display: flex;
+  flex-direction: row;
+  padding-top: 40px;
+  height: 1em;
+  width: auto;
+}
+mat-card.mat-card{
+  height: 8px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  align-items: center;
+  justify-content: center;
+}
 div.searchbar{
   
   margin-left: 100px;
   height: auto;
   width: auto;
-  flex: 1;
+  border-width: 1px;
+  border-color:slategrey;
   display: flex;
   align-items: center;
-  padding-top: 20px;;
+  justify-content: center;
 }
 div.searchbox{
   box-shadow: 0px 1px 0px 0px lightgray;
@@ -60,12 +78,31 @@ div.searchbox{
 }
 .searchboxinput{
   box-shadow: none;
-  border: none;
-  font-size: 20px;;
+  border:2px silver;
+  font-size: 20px;
+  justify-content: center;
+  align-items: center;
+ 
+  padding-left: 30px;
 }
+.searchicon{
+  margin-bottom: 28px;
+  color: rgb(92, 91, 91);
+
+}
+
 input{
   outline: none;
   border: none;
+  margin-bottom: 20px;
+  height: 10px;
+  padding: 0;
+  justify-content: center;
+  align-items: center;
+}
+input:placeholder-shown{
+
+  font-size: 18px;
 }
 div.searchbar:focus  {
   box-shadow: 0 2px 12px 0 rgba(0,0,0,0.16),0 0 0 1px rgba(0,0,0,0.08);
