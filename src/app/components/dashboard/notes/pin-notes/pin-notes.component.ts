@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges } from '@angular/core';
+import { Component, OnInit, OnChanges,Input} from '@angular/core';
 import { Router, ParamMap } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -13,27 +13,32 @@ import { DashboardComponent } from '../../dashboard.component';
   styleUrls: ['./pin-notes.component.scss']
 })
 export class PinNotesComponent implements OnInit {
-  
-  note :Note;
-  noteId: number;
+  //private note=null;
+  @Input() note :Note;
+  noteId;
   pinned: boolean;
+
+ 
+
   constructor(private matSnackBar: MatSnackBar, private router: Router, private noteService: NoteserviceService) {
     // this.noteId=noteService.getNoteId();
-   
   }
   ngOnInit() {
-    this.noteService.sharepin.subscribe(x => this.pinned = x);
+    console.log(this.note.isPin);
+    this.pinned=this.note.isPin;
   }
   
   onPin() {
     console.log("on pin called");
-    this.noteService.share.subscribe(x => this.noteId = x);
+    // this.noteService.share.subscribe(x => this.noteId = x);
     console.log("noteId---->:" + this.noteId);
-    this.noteService.pinNotes(this.noteId).subscribe(response => {
+    this.noteService.pinNotes(this.note.id).subscribe(response => {
       if (this.pinned) {
+        this.pinned=false;
         this.matSnackBar.open('note Pinned', 'ok', { duration: 5000 });
       }
       if (!this.pinned) {
+        this.pinned=true;
         this.matSnackBar.open('note UnPinned', 'ok', { duration: 5000 });
       }
     },
