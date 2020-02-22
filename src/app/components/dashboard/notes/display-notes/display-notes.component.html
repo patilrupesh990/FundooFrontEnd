@@ -11,14 +11,14 @@
         <mat-card class="getNotesMat" [ngStyle]="{'background-color':note.color}">
             <div id="matdiv">
                 <div class="pindiv" (click)="onClicksetNoteId(note.id)">
-                    <app-pin-notes class="pin"></app-pin-notes>
+                    <app-pin-notes [note]='note' class="pin"></app-pin-notes>
                 </div>
 
-                <mat-card-title (click)="openDialog()">
+                <mat-card-title (click)="openDialog(note)">
                     {{note.title}}
                 </mat-card-title>
 
-                <mat-card-content (click)="openDialog()">
+                <mat-card-content (click)="openDialog(note)">
                     {{note.description}}
                 </mat-card-content>
 
@@ -38,19 +38,19 @@
         <mat-card class="getNotesMat" [ngStyle]="{'background':note.color}">
             <div id="matdiv">
                 <div class="pindiv" (click)="onClicksetNoteId(note.id,note.isPin)">
-                    <app-pin-notes class="pin"></app-pin-notes>
+                    <app-pin-notes [note]='note' class="pin"></app-pin-notes>
                 </div>
 
-                <mat-card-title (click)="openDialog()">
+                <mat-card-title (click)="openDialog(note)">
                     {{note.title}}
                 </mat-card-title>
 
-                <mat-card-content (click)="openDialog()">
+                <mat-card-content (click)="openDialog(note)">
                     {{note.description}}
                 </mat-card-content>
 
                 <div class="icon">
-                    <app-notes-iconlist class="app-note-list"></app-notes-iconlist>
+                    <app-notes-iconlist [note]='note' class="app-note-list"></app-notes-iconlist>
                 </div>
             </div>
         </mat-card>
