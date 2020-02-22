@@ -3,34 +3,41 @@
   border-bottom: 1px darkgray solid;
   padding-bottom: 10px;
   padding-top: 10px;
+  display: flex;
+  flex-direction: row;
 }
-a { text-decoration: none;
-    color: black;
+a {
+  text-decoration: none;
+  color: black;
 }
 .container .note-div {
   box-sizing: border-box;
   position: relative;
   flex: 1;
-  border-top:1px lightgray solid;
+  border-top: 1px lightgray solid;
   border-bottom: 1px lightgrey solid;
   border-right: 1px lightgray solid;
   border-bottom-right-radius: 50px;
   border-top-right-radius: 50px;
   font-size: 20px;
   height: 60px;
+  width: 350px;
   border-radius: 0 25px 25px 0;
-    color: #202124;
-    letter-spacing: .01785714em;
-    font-family: 'Google Sans',Roboto,Arial,sans-serif;
-    font-weight: bold ;
-    line-height: 1.25rem;
+  color: #202124;
+  letter-spacing: 0.01785714em;
+  font-family: "Google Sans", Roboto, Arial, sans-serif;
+  font-weight: bold;
+  line-height: 1.25rem;
 }
-.container .reminder-div{
+.label-title {
+  padding: 20px;
+}
+.container .reminder-div {
   margin-top: 10px;
   box-sizing: border-box;
   position: relative;
   flex: 1;
-  border-top:1px lightgray solid;
+  border-top: 1px lightgray solid;
   border-bottom: 1px lightgrey solid;
   border-right: 1px lightgray solid;
   border-bottom-right-radius: 50px;
@@ -38,13 +45,15 @@ a { text-decoration: none;
   font-size: 20px;
   height: 60px;
   border-radius: 0 25px 25px 0;
-    color: #202124;
-    letter-spacing: .01785714em;
-    font-family: 'Google Sans',Roboto,Arial,sans-serif;
-    font-weight: bold ;
-    line-height: 1.25rem;
+  color: #202124;
+  letter-spacing: 0.01785714em;
+  font-family: "Google Sans", Roboto, Arial, sans-serif;
+  font-weight: bold;
+  line-height: 1.25rem;
 }
-.note-div:focus {
+a:active {
   background-color: yellow;
 }
-
+.active-color {
+  background-color: rgb(241, 233, 190);
+}
