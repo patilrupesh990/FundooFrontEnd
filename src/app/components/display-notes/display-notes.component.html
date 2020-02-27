@@ -1,0 +1,71 @@
+<div class="bock-d" *ngIf="!trashedNotes && !archiveNotes">
+    <div class="pin">
+        Pinned Notes
+    </div>
+    <div class="main-div">
+       
+        <div class="getAllNotes" *ngFor="let note of pinNotes" fxLayout="{{view}}" [fxLayoutAlign]="center"
+            fxFlexOffset="2">
+            <mat-card class="getNotesMat" [ngStyle]="{'background-color':note.color}">
+                <div id="matdiv">
+                    <div class="pindiv" (click)="onClicksetNoteId(note.id)">
+                        <a><img id="pin" src="assets/icon/pinned.svg"  (click)="onPin(note.id)"/></a>
+                    </div>
+
+                    <mat-card-title (click)="openDialog(note)">
+                        {{note.title}}
+                    </mat-card-title>
+
+                    <mat-card-content (click)="openDialog(note)">
+                        {{note.description}}
+                    </mat-card-content>
+
+                    <div class="icon">
+                        <app-notes-iconlist [note]="note" class="app-note-list"></app-notes-iconlist>
+                    </div>
+                </div>
+            </mat-card>
+        </div>
+    </div>
+</div>
+<div class="bock-d" >
+    <div class="pin" *ngIf="!trashedNotes && !archiveNotes">
+        OTHER'S
+    </div>
+    <div class="main-div">
+        <div class="getAllNotes" *ngFor="let note of notes" fxLayout="{{view}}" [fxLayoutAlign]="center"
+            fxFlexOffset="3">
+            <mat-card class="getNotesMat" [ngStyle]="{'background':note.color}">
+                <div id="matdiv">
+                    <div class="pindiv" *ngIf="!trashedNotes">
+                        <a><img id="pin" src="assets/icon/unpin.svg"  (click)="onPin(note.id)"/></a>
+                    </div>
+
+                    <mat-card-title (click)="openDialog(note)">
+                        {{note.title}}
+                    </mat-card-title>
+
+                    <mat-card-content (click)="openDialog(note)">
+                        {{note.description}}
+                    </mat-card-content>
+
+                    <div class="icon" *ngIf="!trashedNotes">
+                        <app-notes-iconlist [note]="note" class="app-note-list"></app-notes-iconlist>
+                    </div>
+                    <div class="icon" *ngIf="trashedNotes">
+                        <div class="rupesh">
+                            <a><img class="img-style" src="assets/icon/delete_forever-24px.svg"
+                                    (click)="onClickDelete(note.id)" matTooltip="Delete forever"></a>
+                        </div>
+    
+                        <div class="rupesh">
+                            <a><img class="img-style" src="assets/icon/delete-restore.svg" (click)="onClickRestore(note.id)"
+                                    matTooltip="Restore"></a>
+                        </div>
+                    </div>
+                </div>
+            </mat-card>
+        </div>
+    </div>
+</div>
+
