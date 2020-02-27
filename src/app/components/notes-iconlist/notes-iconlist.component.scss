@@ -1,0 +1,23 @@
+#list{
+
+    display: inline-flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+a:active{
+    background-color: rgb(209, 206, 206);
+    height: 25px;
+    width: 25px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+}
+img:hover{
+    background-color: rgb(226, 226, 226);
+    height: 40px;
+    width: 35px;
+    border-radius: 50%;
+    display: inline-block;
+}
