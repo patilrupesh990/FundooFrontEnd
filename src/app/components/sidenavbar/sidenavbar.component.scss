@@ -13,10 +13,10 @@ a {
 .container .note-div {
   box-sizing: border-box;
   position: relative;
-  flex: 1;
-  border-top: 1px lightgray solid;
-  border-bottom: 1px lightgrey solid;
-  border-right: 1px lightgray solid;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
   border-bottom-right-radius: 50px;
   border-top-right-radius: 50px;
   font-size: 20px;
@@ -36,10 +36,10 @@ a {
   margin-top: 10px;
   box-sizing: border-box;
   position: relative;
-  flex: 1;
-  border-top: 1px lightgray solid;
-  border-bottom: 1px lightgrey solid;
-  border-right: 1px lightgray solid;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
   border-bottom-right-radius: 50px;
   border-top-right-radius: 50px;
   font-size: 20px;
@@ -51,9 +51,16 @@ a {
   font-weight: bold;
   line-height: 1.25rem;
 }
-a:active {
-  background-color: yellow;
+// a:active {
+// }
+// .active-color {
+//   background-color: rgb(241, 233, 190);
+// }
+.active{
+  background-color: rgb(243, 243, 190);
+  border: none;
 }
-.active-color {
-  background-color: rgb(241, 233, 190);
+.tab1,.tab2,.tab3{
+  background-color:  rgb(243, 243, 190);
+  border: none;
 }

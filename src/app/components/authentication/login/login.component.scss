@@ -90,3 +90,14 @@ button:disabled{
   // min-width: 40%;
   width: 100px;
   }
+a{
+  color: black;
+}
+  a:active{
+    background-color: rgb(209, 206, 206);
+    height: 25px;
+    width: 25px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+}

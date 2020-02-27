@@ -1,10 +1,12 @@
 import { Component, OnInit, NgModule } from '@angular/core';
-import { SidenavbarComponent } from './sidenavbar/sidenavbar.component';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatSidenavContent } from '@angular/material';
-import { ToolbarComponent } from './toolbar/toolbar.component';
+import { NoteserviceService } from 'src/app/services/noteservice.service';
+import { Note } from 'src/app/model/note.model';
+import { SidenavbarComponent } from '../sidenavbar/sidenavbar.component';
+import { ToolbarComponent } from '../toolbar/toolbar.component';
 
 @NgModule({
   declarations:[
@@ -34,7 +36,8 @@ export class DashboardComponent implements OnInit {
    opened:boolean;
   
   public opened2 = '';
-  constructor() { }
+  notes:Note[];
+  constructor(private noteService:NoteserviceService) { }
   
   nameEventHander($event: any) {
    

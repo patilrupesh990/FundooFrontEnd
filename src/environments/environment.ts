@@ -20,9 +20,12 @@ export const environment = {
   getNotes:'allnotes',
   updateNotes:'update',
   deleteNote:'delete',
+  archiveNote:'archive',
+  getTrashNotes:'trash/notes',
+  getArchiveNotes:'archive/notes',
 
-
-
+  labelApiURL:'http://localhost:8080/labels',
+  getLabels:'note/lable',
 };
 /*
  * For easier debugging in development mode, you can import the following file

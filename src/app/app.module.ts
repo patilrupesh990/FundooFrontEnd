@@ -29,17 +29,19 @@ import { UserActivateComponent } from './components/authentication/user-activate
 import { ResetpasswordComponent } from './components/authentication/resetpassword/resetpassword.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { ToolbarComponent } from './components/dashboard/toolbar/toolbar.component';
-import { SidenavbarComponent } from './components/dashboard/sidenavbar/sidenavbar.component';
-import { SideNavService } from './services/sidenavservice.service';
-import { NotesIconlistComponent } from './components/dashboard/notes/notes-iconlist/notes-iconlist.component';
-import { CreateNotesComponent } from './components/dashboard/notes/create-notes/create-notes.component';
-import { PinNotesComponent } from './components/dashboard/notes/pin-notes/pin-notes.component';
-import { DisplayNotesComponent } from './components/dashboard/notes/display-notes/display-notes.component';
-import { NotesComponent } from './components/dashboard/notes/notes.component';
 import {  MatTooltipModule} from '@angular/material/tooltip';
 import { MatMenuModule} from '@angular/material/menu';
-import { UpdatenotesComponent } from './components/dashboard/notes/updatenotes/updatenotes.component';
+import { ArchivenotesIconlistComponent } from './components/archivenotes-iconlist/archivenotes-iconlist.component';
+import { DisplayNotesComponent } from './components/display-notes/display-notes.component';
+import { NotesIconlistComponent } from './components/notes-iconlist/notes-iconlist.component';
+import { UpdatenotesComponent } from './components/updatenotes/updatenotes.component';
+import { SidenavbarComponent } from './components/sidenavbar/sidenavbar.component';
+import { SideNavService } from './services/sidenavservice.service';
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import { CreateNotesComponent } from './components/create-notes/create-notes.component';
+import { ColorPickerComponent } from './components/color-picker/color-picker.component';
+import { NotesComponent } from './components/notes/notes.component';
+import { LabelComponent } from './components/label/label.component';
 
 
 @NgModule({
@@ -54,11 +56,13 @@ import { UpdatenotesComponent } from './components/dashboard/notes/updatenotes/u
     ToolbarComponent,
     SidenavbarComponent,
     CreateNotesComponent,
-    PinNotesComponent,
     DisplayNotesComponent,
     NotesIconlistComponent,
     NotesComponent,
     UpdatenotesComponent,
+    ArchivenotesIconlistComponent,
+    LabelComponent,
+    ColorPickerComponent,
   ],
   imports: [
     BrowserModule,

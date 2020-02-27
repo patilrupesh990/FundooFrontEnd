@@ -1,4 +1,5 @@
 export class Note{
+    id:number;
     title:String;
     description:String;
     isTrash: boolean ;

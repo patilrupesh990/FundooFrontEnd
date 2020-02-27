@@ -3,18 +3,18 @@ import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { from } from 'rxjs';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
-import { SidenavbarComponent } from './components/dashboard/sidenavbar/sidenavbar.component';
-import { ToolbarComponent } from './components/dashboard/toolbar/toolbar.component';
 import { createComponent } from '@angular/compiler/src/core';
-import { CreateNotesComponent } from './components/dashboard/notes/create-notes/create-notes.component';
 import { LoginComponent } from './components/authentication/login/login.component';
 import { RegistrationComponent } from './components/authentication/registration/registration.component';
 import { ForgotpasswordComponent } from './components/authentication/forgotpassword/forgotpassword.component';
 import { ResetpasswordComponent } from './components/authentication/resetpassword/resetpassword.component';
 import { UserActivateComponent } from './components/authentication/user-activate/user-activate.component';
-import { NotesIconlistComponent } from './components/dashboard/notes/notes-iconlist/notes-iconlist.component';
-import { DisplayNotesComponent } from './components/dashboard/notes/display-notes/display-notes.component';
-import { NotesComponent } from './components/dashboard/notes/notes.component';
+import { CreateNotesComponent } from './components/create-notes/create-notes.component';
+import { DisplayNotesComponent } from './components/display-notes/display-notes.component';
+import { NotesIconlistComponent } from './components/notes-iconlist/notes-iconlist.component';
+import { SidenavbarComponent } from './components/sidenavbar/sidenavbar.component';
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import { NotesComponent } from './components/notes/notes.component';
 
 const routes: Routes = [
   { path: 'register', component: RegistrationComponent },
@@ -25,38 +25,45 @@ const routes: Routes = [
   { path: 'reset-password/:token', component: ResetpasswordComponent },
 
   {
-    path: 'dashboard/:token', component: DashboardComponent,
+    // path: 'dashboard/:token', component: DashboardComponent,
+    path: 'dashboard', component: DashboardComponent,
     children: [{
       path: 'toolbar',
       component: ToolbarComponent
 
     },
+    
     {
       path: 'sidenave',
       component: SidenavbarComponent
     },
     {
-      path: '',
+      path: 'notes',
       component: NotesComponent,
       children: [
-       {
-         path:'',
-         component:CreateNotesComponent
-       } ,
-       {
-        path:'',
-        component:DisplayNotesComponent
-       }
-        ,{
-        path: 'iconlist',
-        component: NotesIconlistComponent
-      }
-    ]
+        {
+          path: '',
+          component: CreateNotesComponent
+        },
+        {
+          path: '',
+          component: DisplayNotesComponent,
+        },
+       
+         {
+          path: 'iconlist',
+          component: NotesIconlistComponent
+        },
+      ]
     },
-
     {
-      path: ':token/display', component: DisplayNotesComponent
+      path: 'display', component: DisplayNotesComponent,
     },
+    
+    {
+      path: 'createnote',
+      component: CreateNotesComponent
+    }
     ]
   },
   { path: '**', component: PageNotFoundComponent },

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NotesIconlistComponent } from './notes-iconlist.component';
+import { LabelComponent } from './label.component';
 
-describe('NotesIconlistComponent', () => {
-  let component: NotesIconlistComponent;
-  let fixture: ComponentFixture<NotesIconlistComponent>;
+describe('LabelComponent', () => {
+  let component: LabelComponent;
+  let fixture: ComponentFixture<LabelComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NotesIconlistComponent ]
+      declarations: [ LabelComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NotesIconlistComponent);
+    fixture = TestBed.createComponent(LabelComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

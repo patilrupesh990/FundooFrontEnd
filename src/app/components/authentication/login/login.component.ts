@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
       this.matSnackBar.open('Successfully Loged In Wellcome','ok',{duration:5000});
       
       sessionStorage.setItem("token",response.token);
-      this.router.navigate(['/dashboard/'+response.token]);
+      this.router.navigate(['dashboard/notes']);
       this.showSpinner=false;
     },
       (error: any) => {

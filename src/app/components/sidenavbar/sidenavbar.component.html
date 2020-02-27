@@ -1,0 +1,55 @@
+<div class="container">
+  <div>
+    <a [routerLink]="['notes']" [queryParams]="{ page: 'display' }">
+      <div (click)="changeColor(1)"   [ngClass]="{'active': tab==='tab1'}" class="note-div" style="text-decoration:none; ">
+        <span><img src="assets/icon/lightbulb-icon-light-bulb-3.svg"
+            style="height: 27px;padding-left: 30px; width: 30px;"></span>
+        <span style=" padding-left: 30px; ">Notes</span>
+      </div>
+    </a>
+    <a [routerLink]="['notes']" >
+      <div class="reminder-div" style="text-decoration:none;">
+        <span><img src="assets/icon/notifications_none-24px.svg"
+            style="padding-left: 30px; width: 30px;"></span>
+        <span style=" padding-left: 30px;">Reminders</span>
+      </div>
+    </a>
+  </div>
+</div>
+<div class="container">
+  <div>
+    <div class="label-title" style="text-decoration:none; ">
+      LABELS
+    </div>
+    <a [routerLink]="['/display']">
+      <div class="note-div" style="text-decoration:none; ">
+        <span><img src="assets/icon/edit-24px.svg"
+            style="height: 27px;padding-left: 30px;  width: 30px;"></span>
+        <span style=" padding-left: 30px;">Edit label</span>
+      </div>
+    </a>
+  </div>
+</div>
+<div class="container" style="padding-top: 5em;">
+  <div>
+    <a [routerLink]="['display']" [queryParams]="{ page: 'archive' }">
+      <div (click)="changeColor(2)"   [ngClass]="{'active': tab==='tab2'}" class="note-div" style="text-decoration:none; ">
+        <span><img src="assets/icon/archive-24px.svg"
+            style="height: 27px;padding-left: 30px; width: 30px;"></span>
+        <span style=" padding-left: 30px;">Archive</span>
+      </div>
+    </a>
+    <!-- <a [routerLink]="['trash-notes']"> -->
+      <a [routerLink]="['notes']" [queryParams]="{ page: 'trash' }">
+      
+      <div (click)="changeColor(3)"   [ngClass]="{'active': tab==='tab3'}" class="reminder-div" style="text-decoration:none; ">
+        <span><img src="assets/icon/icons8-trash-24.png"
+            style="height: 27px;padding-left: 30px;width: 30px;"></span>
+        <span style=" padding-left: 30px;">Trash</span>
+      </div>
+    </a>
+  </div>
+</div>
+
+
+
