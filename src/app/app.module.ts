@@ -10,7 +10,8 @@ import {
   MatDatepickerModule,
   MatNativeDateModule,
   MatRadioModule,
-  MatSidenavModule  
+  MatSidenavModule
+  ,MatCheckboxModule  
 } from "@angular/material";
 import { AppRoutingModule,routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -89,6 +90,7 @@ import { LabelComponent } from './components/label/label.component';
     FlexLayoutModule,
     MatTooltipModule,
     MatMenuModule,
+    MatCheckboxModule
     ],
     entryComponents:[
       UpdatenotesComponent
