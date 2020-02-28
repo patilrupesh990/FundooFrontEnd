@@ -15,6 +15,7 @@ import { NotesIconlistComponent } from './components/notes-iconlist/notes-iconli
 import { SidenavbarComponent } from './components/sidenavbar/sidenavbar.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { NotesComponent } from './components/notes/notes.component';
+import { LabelComponent } from './components/label/label.component';
 
 const routes: Routes = [
   { path: 'register', component: RegistrationComponent },
@@ -54,6 +55,10 @@ const routes: Routes = [
           path: 'iconlist',
           component: NotesIconlistComponent
         },
+        {
+          path:'labellist',
+          component:LabelComponent
+        }
       ]
     },
     {
