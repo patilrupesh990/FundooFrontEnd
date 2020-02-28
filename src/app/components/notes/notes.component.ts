@@ -27,6 +27,7 @@ export class NotesComponent implements OnInit {
     this.noteService.autoRefresh$.subscribe(() => {
       this.displayNotes();
       this.getAllTrashedNotes();
+      this.getAllArchiveNotes();
     });
   }
 
@@ -94,9 +95,9 @@ export class NotesComponent implements OnInit {
       });
   }
   getAllArchiveNotes() {
+    console.log( "get all achive");
     this.noteService.getAllArchiveNote().subscribe(
       (data) => {
-        
         this.archiveNotes = data.list;
         console.log(this.archiveNotes);
         if (this.archiveNotes != undefined) { 
@@ -117,8 +118,8 @@ export class NotesComponent implements OnInit {
     this.noteService.setPinNotesList(this.pinNotes);
   }
   setArchiveNotes(){
-    console.log("setPinNotes");
-    this.noteService.setArchiveNotesList(this.pinNotes);
+    console.log("setArchiveNotes");
+    this.noteService.setArchiveNotesList(this.archiveNotes);
   }
   setTrasheNotes() {
     console.log("setTrashNotes");
