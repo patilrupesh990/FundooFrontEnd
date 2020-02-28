@@ -9,10 +9,26 @@ import { HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class LabelService {
+  private labelsList = new Subject<any>();
 
   constructor( private httpservice: HttpService) { }
 
-  getLabels(noteId:any){
-    return this.httpservice.get(`${environment.labelApiURL}/${environment.getLabels}`, { headers: new HttpHeaders().set('token', sessionStorage.token)});
+
+  getNoteLabels(noteId:any){
+    return this.httpservice.get(`${environment.labelApiURL}/${environment.getLabels}?noteId=${noteId}`, { headers: new HttpHeaders().set('token', sessionStorage.token)});
   }
+  
+  getAllLabels(){
+    return this.httpservice.get(`${environment.labelApiURL}/${environment.getLabelsList}`, { headers: new HttpHeaders().set('token', sessionStorage.token)});
+  }
+  
+  setlabelList(message:any){
+
+      this.labelsList.next({labels:message});
+  }
+  getlabelList(): Observable<any> {
+    console.log("trashNote Service Get");
+    return this.labelsList.asObservable();
+  }
+ 
 }
