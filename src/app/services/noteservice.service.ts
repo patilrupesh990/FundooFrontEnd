@@ -102,6 +102,13 @@ export class NoteserviceService {
     }));
   }
 
+  addColor(noteId,color){
+    console.log(`${environment.notesApiURL}/${environment.addcolor}?noteId=${noteId}&&color=${color}`);
+    return this.httpservice.put(`${environment.notesApiURL}/${environment.addcolor}?noteId=${noteId}&color=${color}`,{}, { headers: new HttpHeaders().set('token', sessionStorage.token) }).pipe(tap(() => {
+      this._autoRefresh$.next();
+    }));
+  }
+
 
 
   updateNoteId(noteId) {
@@ -128,6 +135,7 @@ export class NoteserviceService {
     return this.pinNoteList.asObservable();
   }
   setTrashedNotesList(message: Note[]) {
+    console.log("archiveNote Service set");
     this.trashedNoteList.next({ notes: message });
   }
   getTrashedNotesList(): Observable<any> {
@@ -135,6 +143,7 @@ export class NoteserviceService {
     return this.trashedNoteList.asObservable();
   }
   setArchiveNotesList(message: Note[]) {
+    console.log("archiveNote Service set");
     this.archiveNoteList.next({ notes: message });
   }
   getArchiveNotesList(): Observable<any> {
