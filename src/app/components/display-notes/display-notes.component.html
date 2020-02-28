@@ -6,9 +6,9 @@
        
         <div class="getAllNotes" *ngFor="let note of pinNotes" fxLayout="{{view}}" [fxLayoutAlign]="center"
             fxFlexOffset="2">
-            <mat-card class="getNotesMat" [ngStyle]="{'background-color':note.color}">
+            <mat-card class="getNotesMat"  [ngStyle]="{'background-color':note.color}">
                 <div id="matdiv">
-                    <div class="pindiv" (click)="onClicksetNoteId(note.id)">
+                    <div class="pindiv" (click)="unpin=!unpin">
                         <a><img id="pin" src="assets/icon/pinned.svg"  (click)="onPin(note.id)"/></a>
                     </div>
 
@@ -37,7 +37,7 @@
             fxFlexOffset="3">
             <mat-card class="getNotesMat" [ngStyle]="{'background':note.color}">
                 <div id="matdiv">
-                    <div class="pindiv" *ngIf="!trashedNotes">
+                    <div class="pindiv" *ngIf="!trashedNotes" (click)="pin=!pin">
                         <a><img id="pin" src="assets/icon/unpin.svg"  (click)="onPin(note.id)"/></a>
                     </div>
 
