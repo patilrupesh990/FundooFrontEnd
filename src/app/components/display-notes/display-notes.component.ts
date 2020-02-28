@@ -24,10 +24,14 @@ export class DisplayNotesComponent implements OnInit {
   private sub: any;
   private param: any;
 
+  pin:boolean=true;
+  unpin:boolean=true;
+
   constructor(private dialog: MatDialog, private formBuilder: FormBuilder, private matSnackBar: MatSnackBar, private router: Router, private route: ActivatedRoute
     , private noteService: NoteserviceService, private httpClient: HttpClient) {
   }
   ngOnInit() {
+    
     this.sub = this.route
       .queryParams
       .subscribe(params => {
@@ -69,37 +73,33 @@ export class DisplayNotesComponent implements OnInit {
     });
     this.noteService.getPinNotesList().subscribe(message => {
       console.log("Display PinNotes Call");
-
       this.pinNotes = message.notes;
       console.log(this.pinNotes);
-
     });
   }
   getAllArchiveNotes() {
     this.archiveNotes = true;
     this.trashedNotes = false;
-    this.noteService.getAllArchiveNote().subscribe((data) => {
-      console.log(data.response);
-      console.log(data);
-      this.notes = data.list;
-    },
-      (error: any) => {
-        this.matSnackBar.open("Error in Dipslay Trashed Notes");
-      });
-  }
-
-
-  onClicksetNoteId(id, isPin) {
-    this.noteService.updateNoteId(id);
-    this.noteService.updateNotePin(isPin);
+    this.noteService.getArchiveNotesList().subscribe(message => {
+      this.notes = message.notes;
+      console.log(this.notes);
+    });
+   
   }
 
   onPin(noteId) {
     console.log("on pin called");
 
     this.noteService.pinNotes(noteId).subscribe(response => {
-
+      if(!this.pin){
       this.matSnackBar.open('note Pinned', 'ok', { duration: 5000 });
+      this.pin=true;
+      }
+      if(!this.unpin){
+        this.matSnackBar.open('note UnPinned', 'ok', { duration: 5000 });
+        this.unpin=true;
+      }
+
     },
       (error: any) => {
         console.log(error)
