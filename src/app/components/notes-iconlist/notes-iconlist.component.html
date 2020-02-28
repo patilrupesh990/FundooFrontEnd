@@ -3,31 +3,50 @@
 </div>
 
 <div class="rupesh">
-    <a href="#"><img src="assets/icon/collab.svg" matTooltip="Add Collobrate"></a>
+    <a (click)="dialogCol()"><img src="assets/icon/collab.svg" matTooltip="Add Collobrate"></a>
 </div>
 
 <div class="rupesh">
-    <a href="#"><img src="assets/icon/colorpalate (1).svg" (click)="onClickColorPlate()" matTooltip="Add Color"></a>
+    <a><img src="assets/icon/colorpalate (1).svg" [matMenuTriggerFor]="colorlist" matTooltip="Add Color"></a>
 </div>
+
+<mat-menu #colorlist="matMenu" [overlapTrigger]="false">
+    <ng-template matMenuContent>
+        <div>
+            <div fxLayout="row" fxLayoutGap="10px" style="margin-top: 1px" *ngFor="let colors of arrayOfColors">
+                <div *ngFor="let color of colors">
+                    <button [ngStyle]="{ 'background-color': color.color }" (click)="setColor((color.color))"
+                        matTooltip="{{ color.name }}" mat-mini-fab></button>
+
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</mat-menu>
 
 <div class="rupesh">
     <a href="#"><img src="assets/icon/addImage.svg" matTooltip="Add Image"></a>
 </div>
 
-<div class="rupesh" *ngIf="!isArchive">
+<div class="rupesh" *ngIf="!note.isArchive">
     <img src="assets/icon/archive-24px.svg" (click)="onClickArchive()" matTooltip="Archive">
 </div>
-<div class="rupesh" *ngIf="isArchive">
+<div class="rupesh" *ngIf="note.isArchive">
     <img src="assets/icon/unarchive-24px.svg" (click)="onClickArchive()" matTooltip="UnArchive">
 </div>
 
 <div class="rupesh">
-        <a><img mat-icon-button [matMenuTriggerFor]="menu" style="height: 1.5em; width: 2em;" src="assets/icon/more.svg"
+    <a><img mat-icon-button [matMenuTriggerFor]="menu" style="height: 1.5em; width: 2em;" src="assets/icon/more.svg" (click)="onclicksetNoteid(note.id)"
             matTooltip="More"></a>
-   
+
     <mat-menu #menu="matMenu">
         <button mat-menu-item (click)="onClickDelete()">Delete Note</button>
-        <button mat-menu-item>Add Label</button>
+        <!-- <button mat-menu-item>Add Label</button> -->
+        <button mat-menu-item [matMenuTriggerFor]="vertebrates">Add Label</button>
         <button mat-menu-item>Add Drawing</button>
     </mat-menu>
+
+    <mat-menu #vertebrates="matMenu">
+        <app-label ></app-label>
+      </mat-menu>
 </div>
