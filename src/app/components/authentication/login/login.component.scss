@@ -92,12 +92,6 @@ button:disabled{
   }
 a{
   color: black;
+  text-decoration: none
 }
-  a:active{
-    background-color: rgb(209, 206, 206);
-    height: 25px;
-    width: 25px;
-    background-color: #bbb;
-    border-radius: 50%;
-    display: inline-block;
-}
+ 
