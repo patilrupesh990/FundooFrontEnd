@@ -23,9 +23,11 @@ export const environment = {
   archiveNote:'archive',
   getTrashNotes:'trash/notes',
   getArchiveNotes:'archive/notes',
+  addcolor:'notes/color',
 
-  labelApiURL:'http://localhost:8080/labels',
+  labelApiURL:'http://localhost:8088/labels',
   getLabels:'note/lable',
+  getLabelsList:'label',
 };
 /*
  * For easier debugging in development mode, you can import the following file
