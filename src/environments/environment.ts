@@ -24,10 +24,17 @@ export const environment = {
   getTrashNotes:'trash/notes',
   getArchiveNotes:'archive/notes',
   addcolor:'notes/color',
+  addreminder:'notes/reminder',
 
   labelApiURL:'http://localhost:8088/labels',
   getLabels:'note/lable',
   getLabelsList:'label',
+  addLabel:'add',
+  getNotesByLabelId:'notes',
+
+  collaboratorApi:'http://localhost:8086/collaborators',
+  addCollaborator:'add',
+  getCollaborator:'users',
 };
 /*
  * For easier debugging in development mode, you can import the following file
