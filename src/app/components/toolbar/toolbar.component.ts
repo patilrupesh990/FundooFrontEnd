@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { SideNavService } from 'src/app/services/sidenavservice.service';
+import { UserService } from 'src/app/services/userservice.service';
 
 @Component({
   selector: 'app-toolbar',
@@ -9,8 +10,10 @@ import { SideNavService } from 'src/app/services/sidenavservice.service';
 export class ToolbarComponent implements OnInit {
   @Output() toggleEvent = new EventEmitter<boolean>();
   opened:boolean=false;
+  uName=sessionStorage.uname;
+  name=sessionStorage.response;;
+  constructor(private sideNavService: SideNavService,private userservice:UserService) {
 
-  constructor(private sideNavService: SideNavService) {
   }
   
   ontoggel(input:any){
@@ -21,8 +24,17 @@ export class ToolbarComponent implements OnInit {
   }
 
   ngOnInit() {
+    // this.getName();
+    // this.getUserName();
+  }
+
+
+  onClickClear(){
+    sessionStorage.clear();
+    localStorage.clear();
   }
   
+
   
 
 }
