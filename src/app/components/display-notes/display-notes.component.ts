@@ -18,6 +18,8 @@ import { callbackify } from 'util';
 export class DisplayNotesComponent implements OnInit {
   trashedNotes: boolean = false;
   archiveNotes: boolean = false;
+  trashEmpty:boolean=false;
+
   notes: any;
   pinNotes: any;
   getAllNotes: [];
@@ -29,6 +31,23 @@ export class DisplayNotesComponent implements OnInit {
 
   constructor(private dialog: MatDialog, private formBuilder: FormBuilder, private matSnackBar: MatSnackBar, private router: Router, private route: ActivatedRoute
     , private noteService: NoteserviceService, private httpClient: HttpClient) {
+      this.sub = this.route
+      .queryParams
+      .subscribe(params => {
+        this.param = params['page'] || '';
+        if (this.param == "archive") {
+          console.log("elseif archive");
+          this.getAllArchiveNotes();
+        }
+        else if (this.param == "trash") {
+          console.log("elseif trash");
+          this.getAllTrashedNotes();
+        }
+        else {
+          console.log("else display");
+          this.displayNotes();
+        }
+      });
   }
   ngOnInit() {
     
@@ -60,12 +79,20 @@ export class DisplayNotesComponent implements OnInit {
       console.log("trashed Notes subscribe..", message.notes);
       this.notes = message.notes;
       console.log("final trsah data" + this.trashedNotes);
+      if(this.notes==null){
+        this.trashEmpty=true;
+      }else{
+        this.trashEmpty=false;
+      }
+
     });
   }
 
   displayNotes() {
     this.trashedNotes = false;
     this.archiveNotes = false;
+    this.trashEmpty=false;
+
     console.log("Display Notes Call");
     this.noteService.getNotesList().subscribe(message => {
       this.notes = message.notes;
@@ -80,6 +107,8 @@ export class DisplayNotesComponent implements OnInit {
   getAllArchiveNotes() {
     this.archiveNotes = true;
     this.trashedNotes = false;
+    this.trashEmpty=false;
+
     this.noteService.getArchiveNotesList().subscribe(message => {
       this.notes = message.notes;
       console.log(this.notes);
@@ -99,7 +128,6 @@ export class DisplayNotesComponent implements OnInit {
         this.matSnackBar.open('note UnPinned', 'ok', { duration: 5000 });
         this.unpin=true;
       }
-
     },
       (error: any) => {
         console.log(error)

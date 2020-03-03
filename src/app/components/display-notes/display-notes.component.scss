@@ -135,3 +135,25 @@ div.pin:hover {
   border-radius: 50%;
   display: inline-block;
 }
+
+.emptylist{
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+.emptylist-image{
+
+    height: 10em;
+    opacity: 0.3;
+    width: 10em;
+}
+.emptylist-label{
+  padding-top: 1em;
+  font-size: 25px;
+  font-weight: bolder;
+  opacity: 0.7;
+  color: gray;
+}
