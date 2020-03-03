@@ -9,8 +9,10 @@ import { HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class LabelService {
-  private labelsList = new Subject<any>();
-
+  private noteId = new Subject<any>();
+  private labelId = new Subject<any>();
+  private labelList=new Subject<any>();
+  private noteList=new Subject<any>();
   constructor( private httpservice: HttpService) { }
 
 
@@ -21,14 +23,44 @@ export class LabelService {
   getAllLabels(){
     return this.httpservice.get(`${environment.labelApiURL}/${environment.getLabelsList}`, { headers: new HttpHeaders().set('token', sessionStorage.token)});
   }
-  
-  setlabelList(message:any){
 
-      this.labelsList.next({labels:message});
+  addLabel(noteId:any,labelId){
+    return this.httpservice.post(`${environment.labelApiURL}/${environment.addLabel}?labelId=${labelId}&noteId=${noteId}`,{},{headers:new HttpHeaders().set('token',sessionStorage.token)});
   }
-  getlabelList(): Observable<any> {
+
+  getNotesByLabel(labelId){
+    return this.httpservice.get(`${environment.labelApiURL}/${environment.getNotesByLabelId}?labelId=${labelId}`,{headers:new HttpHeaders().set('token',sessionStorage.token)});
+  }
+  
+  //Subject Getters And Setters
+
+  setNoteIdForLabel(message:any){
+
+      this.noteId.next({labels:message});
+  }
+  getNoteIdForLabel(): Observable<any> {
     console.log("trashNote Service Get");
-    return this.labelsList.asObservable();
+    return this.noteId.asObservable();
   }
- 
+  setLabelId(message:any){
+    this.labelList.next({labels:message});
+  }
+  getLabelId(message:any):Observable<any>{
+    return this.labelList.asObservable();
+  }
+
+  setLabelList(message:any){
+      this.labelList.next({label:message});
+  }
+  getLabelList(){
+    return this.labelList.asObservable();
+  } 
+  setNoteList(message:any){
+    this.noteList.next({notes:message});
+  }
+  getNoteList(){
+    return this.noteList.asObservable();
+  }
+  
+
 }
