@@ -1,14 +1,20 @@
 import { Injectable } from '@angular/core';
 import {environment} from 'src/environments/environment'
 import { HttpClient, HttpHeaderResponse ,HttpHeaders} from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { HttpService } from './httpservice.service';
+import { UserModel } from '../model/User.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
+
   private userApiUrl=environment.userApiURL;
+  
+  private userName=new Subject<any>();
+  private fullName=new Subject<any>();
+
   private httpOtions={
   headers: new HttpHeaders ({'content-type':'application/json'})
   };
@@ -42,5 +48,21 @@ export class UserService {
     console.log("calling to.."+`${this.resetPassword}/${token}`);
     return this.httpservice.put(`${this.userApiUrl}/${environment.resetPasswordURL}/${token}`,user,{responseType: 'text'});
   }
+
+  // setUserName(message:String){
+  //   this.userName.next({uname:message});
+  // }
+  // getUserName():Observable<any>{
+  //   return this.userName.asObservable();
+  // }
+
+  // setName(message:String){
+  //   this.fullName.next({name:message})
+  // }
+  // getName():Observable<any>{
+  //   return this.fullName.asObservable();
+  // }
+  
+
   
 }
