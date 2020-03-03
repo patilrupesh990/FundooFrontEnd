@@ -21,7 +21,18 @@
     <div class="label-title" style="text-decoration:none; ">
       LABELS
     </div>
-    <a [routerLink]="['/display']">
+    <div *ngFor="let label of labels">
+     
+        <a [routerLink]="['/display']">
+          <div class="note-div" style="text-decoration:none;">
+            <span ><img src="assets/icon/label-24px.svg"
+                style="height: 27px;padding-left: 30px; width: 30px;"  (click)="onCLickSetLabelId(label.labelId)"></span>
+            <span style=" padding-left: 30px; " (click)="onCLickSetLabelId(label.labelId)">{{label.labelName}}</span>
+          </div>
+        </a>
+     
+    </div>
+          <a [routerLink]="['/display']">
       <div class="note-div" style="text-decoration:none; ">
         <span><img src="assets/icon/edit-24px.svg"
             style="height: 27px;padding-left: 30px;  width: 30px;"></span>
