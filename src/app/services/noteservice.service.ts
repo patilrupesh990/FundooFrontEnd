@@ -109,6 +109,12 @@ export class NoteserviceService {
     }));
   }
 
+  addReminder(note:any,time:any){
+      return this.httpservice.put(`${environment.notesApiURL}/${environment.addreminder}?time=${time}`,note,{headers:new HttpHeaders().set('token',localStorage.token)}).pipe(tap(() => {
+        this._autoRefresh$.next();
+      }));
+  }
+
 
 
   updateNoteId(noteId) {
