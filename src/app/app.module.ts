@@ -32,7 +32,6 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import {  MatTooltipModule} from '@angular/material/tooltip';
 import { MatMenuModule} from '@angular/material/menu';
-import { ArchivenotesIconlistComponent } from './components/archivenotes-iconlist/archivenotes-iconlist.component';
 import { DisplayNotesComponent } from './components/display-notes/display-notes.component';
 import { NotesIconlistComponent } from './components/notes-iconlist/notes-iconlist.component';
 import { UpdatenotesComponent } from './components/updatenotes/updatenotes.component';
@@ -43,6 +42,8 @@ import { CreateNotesComponent } from './components/create-notes/create-notes.com
 import { ColorPickerComponent } from './components/color-picker/color-picker.component';
 import { NotesComponent } from './components/notes/notes.component';
 import { LabelComponent } from './components/label/label.component';
+import { AmazingTimePickerModule } from 'amazing-time-picker';
+import { CollaboratorComponent } from './components/collaborator/collaborator.component';
 
 
 @NgModule({
@@ -61,9 +62,9 @@ import { LabelComponent } from './components/label/label.component';
     NotesIconlistComponent,
     NotesComponent,
     UpdatenotesComponent,
-    ArchivenotesIconlistComponent,
     LabelComponent,
     ColorPickerComponent,
+    CollaboratorComponent,
   ],
   imports: [
     BrowserModule,
@@ -90,10 +91,12 @@ import { LabelComponent } from './components/label/label.component';
     FlexLayoutModule,
     MatTooltipModule,
     MatMenuModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    AmazingTimePickerModule
     ],
     entryComponents:[
-      UpdatenotesComponent
+      UpdatenotesComponent,
+      CollaboratorComponent
     ],
   providers: [SideNavService],
   bootstrap: [AppComponent]
