@@ -1,5 +1,5 @@
 <div class="rupesh">
-    <a href="#"><img src="assets/icon/remainder.svg" matTooltip="Add Reminder"></a>
+    <a ><img src="assets/icon/remainder.svg" (click)="open(note.id)" matTooltip="Add Reminder"></a>
 </div>
 
 <div class="rupesh">
@@ -28,11 +28,11 @@
     <a href="#"><img src="assets/icon/addImage.svg" matTooltip="Add Image"></a>
 </div>
 
-<div class="rupesh" *ngIf="!note.isArchive">
-    <img src="assets/icon/archive-24px.svg" (click)="onClickArchive()" matTooltip="Archive">
+<div class="rupesh" >
+    <img src="assets/icon/archive-24px.svg" (click)="onClickArchive(note.isArchive,note.isPin)" matTooltip="Archive">
 </div>
 <div class="rupesh" *ngIf="note.isArchive">
-    <img src="assets/icon/unarchive-24px.svg" (click)="onClickArchive()" matTooltip="UnArchive">
+    <img src="assets/icon/unarchive-24px.svg" (click)="onClickArchive(note.isArchive,note.isPin)" matTooltip="UnArchive">
 </div>
 
 <div class="rupesh">
