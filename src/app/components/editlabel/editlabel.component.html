@@ -1,0 +1,32 @@
+<div>
+    <div class="search-label">
+        <div>
+            <input type="text" style="width: 280px; height: 30px;" placeholder="Create Label" #labelInput
+                [ngModel]="lname">
+        </div>
+        <div>
+            <a><img id="img" style="height: 40px; width: 40px; padding-left: 10px;" src="assets/icon/icons8-add-64.png"
+                    (click)="onClickCreateLabel(labelInput.value)" matTooltip="Create Label"></a>
+        </div>
+    </div>
+    <div class="label-list">
+        <div *ngFor="let label of labels" style="display: flex; align-items: center; flex-direction: row;">
+            <div style="display: flex; align-items: flex-start;" (mouseover)="changeText=true" (mouseout)="changeText=false">
+                <img id="img" src="assets/icon/label-24px.svg" *ngIf="!changeText"
+                    style="height: 30px;margin-left: 40px; width: 40px;">
+            </div>
+            <div style="display: flex; justify-items: flex-start;" (mouseover)="changeText=true" (mouseout)="changeText=false">
+                <img id="img" class="img-style" *ngIf="changeText" (click)="onClickDeleteLabel(label.labelId)"
+                    src="assets/icon/delete.svg" style="height: 20px;margin-left: 40px; width: 20px;"
+                    matTooltip="Delete label">
+            </div>
+            <!-- <label mat-menu-item style="display:inline" (click)="onCheckedAddLabel(label.labelId,label.noteId)">{{label.labelName}}</label> -->
+            <label mat-menu-item
+                style="display:inline; font-size: large; font-weight: bolder;">{{label.labelName}}</label>
+            <div class="img-edit">
+                <img  class="img-edit" (click)="OnclickEdit(label.labelId,label.labelName)" src="assets/icon/edit-24px.svg"
+                    matTooltip="edit label">
+            </div>
+        </div>
+    </div>
+</div>

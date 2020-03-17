@@ -1,0 +1,15 @@
+.search-label {
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+}
+#img:hover {
+  background-color: rgb(231, 230, 230);
+  height: 15px;
+  width: 5px;
+  border-radius: 30%;
+  display: inline-block;
+}
+.img-edit {
+  align-items: flex-end;
+}
