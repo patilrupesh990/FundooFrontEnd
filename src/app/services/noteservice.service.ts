@@ -17,9 +17,7 @@ export class NoteserviceService {
   private pinNoteList = new Subject<any>();
   private archiveNoteList = new Subject<any>();
   private trashedNoteList = new Subject<any>();
-
-
-
+  private searchNoteData=new Subject<any>();
   private content = new BehaviorSubject<number>(0);
   private pincontent = new BehaviorSubject<boolean>(false);
 
@@ -110,7 +108,8 @@ export class NoteserviceService {
   }
 
   addReminder(note:any,time:any){
-      return this.httpservice.put(`${environment.notesApiURL}/${environment.addreminder}?time=${time}`,note,{headers:new HttpHeaders().set('token',localStorage.token)}).pipe(tap(() => {
+    console.log("service--->add reminder");
+      return this.httpservice.put(`${environment.notesApiURL}/${environment.addreminder}?time=${time}`,note,{headers:new HttpHeaders().set('token',sessionStorage.token)}).pipe(tap(() => {
         this._autoRefresh$.next();
       }));
   }
@@ -155,6 +154,13 @@ export class NoteserviceService {
   getArchiveNotesList(): Observable<any> {
     console.log("getArchive Service Get");
     return this.archiveNoteList.asObservable();
+  }
+
+  setSearchNoteData(message:any){
+    return this.searchNoteData.next({notes:message});
+  }
+  getSearchNoteData():Observable<any>{
+    return this.searchNoteData.asObservable();
   }
 
 
