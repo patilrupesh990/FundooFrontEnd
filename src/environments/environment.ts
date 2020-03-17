@@ -31,10 +31,16 @@ export const environment = {
   getLabelsList:'label',
   addLabel:'add',
   getNotesByLabelId:'notes',
+  getLabelsByNoteId:'note/lable',
+  createLabel:'create',
+  deleteLabel:'delete',
 
+  
   collaboratorApi:'http://localhost:8086/collaborators',
   addCollaborator:'add',
   getCollaborator:'users',
+  removecolaborator:'remove',
+
 };
 /*
  * For easier debugging in development mode, you can import the following file
