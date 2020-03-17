@@ -23,7 +23,7 @@
     </div>
     <div *ngFor="let label of labels">
      
-        <a [routerLink]="['/display']">
+        <a [routerLink]="['notes']" [queryParams]="{ page: 'labels' }">
           <div class="note-div" style="text-decoration:none;">
             <span ><img src="assets/icon/label-24px.svg"
                 style="height: 27px;padding-left: 30px; width: 30px;"  (click)="onCLickSetLabelId(label.labelId)"></span>
@@ -32,8 +32,8 @@
         </a>
      
     </div>
-          <a [routerLink]="['/display']">
-      <div class="note-div" style="text-decoration:none; ">
+          <a>
+      <div class="note-div" style="text-decoration:none;" (click)="openDialog(labels)">
         <span><img src="assets/icon/edit-24px.svg"
             style="height: 27px;padding-left: 30px;  width: 30px;"></span>
         <span style=" padding-left: 30px;">Edit label</span>
