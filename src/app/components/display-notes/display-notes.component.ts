@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input,OnChanges } from '@angular/core';
 import { Note } from 'src/app/model/note.model';
 import { Router, ParamMap, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -8,6 +8,8 @@ import { HttpClient } from '@angular/common/http';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { UpdatenotesComponent } from '../updatenotes/updatenotes.component';
 import { callbackify } from 'util';
+import { Label } from 'src/app/model/label.model';
+import { LabelService } from 'src/app/services/labelservice.service';
 
 @Component({
   selector: 'app-display-notes',
@@ -15,7 +17,7 @@ import { callbackify } from 'util';
   styleUrls: ['./display-notes.component.scss']
 })
 
-export class DisplayNotesComponent implements OnInit {
+export class DisplayNotesComponent implements OnInit,OnChanges {
   trashedNotes: boolean = false;
   archiveNotes: boolean = false;
   trashEmpty:boolean=false;
@@ -28,9 +30,13 @@ export class DisplayNotesComponent implements OnInit {
 
   pin:boolean=true;
   unpin:boolean=true;
+  labels;
+  searchnote:any;
+  searchNotes:boolean;
+  labelNotes:boolean;
 
   constructor(private dialog: MatDialog, private formBuilder: FormBuilder, private matSnackBar: MatSnackBar, private router: Router, private route: ActivatedRoute
-    , private noteService: NoteserviceService, private httpClient: HttpClient) {
+    , private noteService: NoteserviceService,private labelService:LabelService, private httpClient: HttpClient) {
       this.sub = this.route
       .queryParams
       .subscribe(params => {
@@ -43,11 +49,39 @@ export class DisplayNotesComponent implements OnInit {
           console.log("elseif trash");
           this.getAllTrashedNotes();
         }
+        else if (this.param == "labels") {
+          console.log("elseif labels");
+          this.getLabelsNotes();
+        }
         else {
           console.log("else display");
           this.displayNotes();
         }
       });
+  }
+  ngOnChanges(){
+    this.sub = this.route
+      .queryParams
+      .subscribe(params => {
+        this.param = params['page'] || '';
+        if (this.param == "archive") {
+          console.log("elseif archive");
+          this.getAllArchiveNotes();
+        }
+        else if (this.param == "labels") {
+          console.log("elseif labels");
+          this.getLabelsNotes();
+        }
+        else if (this.param == "trash") {
+          console.log("elseif trash");
+          this.getAllTrashedNotes();
+        }
+        else {
+          console.log("else display");
+          this.displayNotes();
+        }
+      });
+      this.getSearchNoteData();
   }
   ngOnInit() {
     
@@ -68,12 +102,14 @@ export class DisplayNotesComponent implements OnInit {
           this.displayNotes();
         }
       });
-
+      this.getSearchNoteData();
   }
 
   getAllTrashedNotes() {
     this.trashedNotes = true;
     this.archiveNotes = false;
+    this.labelNotes=false;
+
     console.log("trashed Notes subscribe..");
     this.noteService.getTrashedNotesList().subscribe(message => {
       console.log("trashed Notes subscribe..", message.notes);
@@ -88,9 +124,19 @@ export class DisplayNotesComponent implements OnInit {
     });
   }
 
+  getLabelsNotes(){
+    this.labelNotes=true;
+    this.trashedNotes = false;
+    this.archiveNotes = false;
+    this.labelService.getlabelsNotes().subscribe(message=>{
+      this.notes=message.notes;
+    })
+  }
+
   displayNotes() {
     this.trashedNotes = false;
     this.archiveNotes = false;
+    this.labelNotes=false;
     this.trashEmpty=false;
 
     console.log("Display Notes Call");
@@ -108,14 +154,15 @@ export class DisplayNotesComponent implements OnInit {
     this.archiveNotes = true;
     this.trashedNotes = false;
     this.trashEmpty=false;
+    this.labelNotes=false;
 
     this.noteService.getArchiveNotesList().subscribe(message => {
       this.notes = message.notes;
       console.log(this.notes);
     });
-   
   }
 
+ 
   onPin(noteId) {
     console.log("on pin called");
 
@@ -152,6 +199,8 @@ export class DisplayNotesComponent implements OnInit {
   onClickDelete(noteId: number) {
     this.noteService.deleteNote(noteId).subscribe(data => {
       this.matSnackBar.open("Note Deleted", "Ok", { duration: 3000 });
+      this.notes=null;
+     
     },
       (error) => {
         this.matSnackBar.open("Error in Note Deletion", "Ok", { duration: 4000 });
@@ -161,12 +210,25 @@ export class DisplayNotesComponent implements OnInit {
 
   onClickRestore(noteId: number) {
     this.noteService.restoreNote(noteId).subscribe(data => {
+      this.notes=null;
+      
       this.matSnackBar.open("Note Restored", "Ok", { duration: 3000 });
     },
       (error) => {
         this.matSnackBar.open("Error while Note Restoring", "Ok", { duration: 3000 });
       }
     );
+  }
+
+  getSearchNoteData(){
+    this.noteService.getSearchNoteData().subscribe((message)=>{
+      console.log("search data",message.notes);
+        this.searchnote=message.notes;
+        this.searchNotes=true;
+        if(message.notes==""){
+          this.searchNotes=false;
+        }
+    });
   }
 
 }

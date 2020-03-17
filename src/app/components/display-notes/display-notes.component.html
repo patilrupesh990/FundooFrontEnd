@@ -1,8 +1,8 @@
-<div class="bock-d" *ngIf="!trashedNotes && !archiveNotes">
-    <div class="pin">
+<div class="bock-d" *ngIf="!trashedNotes && !archiveNotes &&!searchNotes &&!labelNotes">
+    <div class="pin" >
         Pinned Notes
     </div>
-    <div class="main-div">
+    <div class="main-div" >
        
         <div class="getAllNotes" *ngFor="let note of pinNotes" fxLayout="{{view}}" [fxLayoutAlign]="center"
             fxFlexOffset="2">
@@ -33,8 +33,10 @@
         OTHER'S
     </div>
     <div class="main-div">
-        <div class="getAllNotes" *ngFor="let note of notes" fxLayout="{{view}}" [fxLayoutAlign]="center"
+        <div class="getAllNotes" *ngFor="let note of notes | searchnote:searchnote" fxLayout="{{view}}" [fxLayoutAlign]="center"
             fxFlexOffset="3">
+           <!-- <div class="getAllNotes" *ngFor="let note of notes " fxLayout="{{view}}" [fxLayoutAlign]="center"
+            fxFlexOffset="3">  -->
             <mat-card class="getNotesMat" [ngStyle]="{'background':note.color}">
                 <div id="matdiv">
                     <div class="pindiv" *ngIf="!trashedNotes" (click)="pin=!pin">
