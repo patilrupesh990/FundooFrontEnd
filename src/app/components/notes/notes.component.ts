@@ -6,6 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 import { NoteserviceService } from '../../services/noteservice.service';
 import { HttpClient } from '@angular/common/http';
 import { Note } from 'src/app/model/note.model';
+import { LabelService } from 'src/app/services/labelservice.service';
 
 @Component({
   selector: 'app-notes',
@@ -21,14 +22,32 @@ export class NotesComponent implements OnInit {
   private sub: any;
   private param: any;
 
-  constructor(private matSnackBar: MatSnackBar, private route: ActivatedRoute
+  constructor(private labelService:LabelService,private matSnackBar: MatSnackBar, private route: ActivatedRoute
     , private noteService: NoteserviceService) {
     console.log(" Notes constructor");
-    this.noteService.autoRefresh$.subscribe(() => {
-      this.displayNotes();
-      this.getAllTrashedNotes();
-      this.getAllArchiveNotes();
-    });
+    console.log(" Notes ngOnInit()");
+    this.route
+      .queryParams
+      .subscribe(params => {
+        this.param = params['page'] || '';
+        if (this.param == "archive") {
+          console.log("elseif archive");
+          this.getAllArchiveNotes();
+        }
+        else if (this.param == "trash") {
+          console.log("elseif trash");
+          this.getAllTrashedNotes();
+        }
+        else if (this.param == "labels") {
+          console.log("elseif labels");
+          this.getLabelsNotes();
+        }
+        else {
+          console.log("else display");
+          this.displayNotes();
+        }
+      });
+    
   }
 
   ngOnInit() {
@@ -45,10 +64,19 @@ export class NotesComponent implements OnInit {
           console.log("elseif trash");
           this.getAllTrashedNotes();
         }
+        else if (this.param == "labels") {
+          console.log("elseif labels");
+          this.getLabelsNotes();
+        }
         else {
           console.log("else display");
           this.displayNotes();
         }
+      });
+      this.noteService.autoRefresh$.subscribe(() => {
+        this.displayNotes();
+        this.getAllTrashedNotes();
+        this.getAllArchiveNotes();
       });
   }
 
@@ -62,6 +90,8 @@ export class NotesComponent implements OnInit {
       }
       if (data.response == 'No Trashed Notes Available0') {
         console.log("Empty Trashed Display");
+        this.trashNotes=null;
+        this.setTrasheNotes();
       }
     },
       (error) => {
@@ -109,6 +139,11 @@ export class NotesComponent implements OnInit {
       }
     );
   }
+  getLabelsNotes(){
+    this.labelService.setlabelsNotes(this.labelService.getlabelsNotes().subscribe(message=>{
+      this.notes=message.notes;
+    }));
+  }
   setnotes() {
     console.log("setNotes");
     this.noteService.setNotesList(this.notes);
@@ -120,6 +155,7 @@ export class NotesComponent implements OnInit {
   setArchiveNotes(){
     console.log("setArchiveNotes");
     this.noteService.setArchiveNotesList(this.archiveNotes);
+    
   }
   setTrasheNotes() {
     console.log("setTrashNotes");

@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { HttpserviceService } from './httpservice.service';
+import { CollaboratorService } from './collaborator.service';
 
-describe('HttpserviceService', () => {
+describe('CollaboratorService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: HttpserviceService = TestBed.get(HttpserviceService);
+    const service: CollaboratorService = TestBed.get(CollaboratorService);
     expect(service).toBeTruthy();
   });
 });

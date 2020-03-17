@@ -44,6 +44,9 @@ import { NotesComponent } from './components/notes/notes.component';
 import { LabelComponent } from './components/label/label.component';
 import { AmazingTimePickerModule } from 'amazing-time-picker';
 import { CollaboratorComponent } from './components/collaborator/collaborator.component';
+import { SearchnotePipe } from './pipe/searchnote.pipe';
+import { SearchlabelPipe } from './pipe/searchlabel.pipe';
+import { EditlabelComponent } from './components/editlabel/editlabel.component';
 
 
 @NgModule({
@@ -65,6 +68,9 @@ import { CollaboratorComponent } from './components/collaborator/collaborator.co
     LabelComponent,
     ColorPickerComponent,
     CollaboratorComponent,
+    SearchnotePipe,
+    SearchlabelPipe,
+    EditlabelComponent,
   ],
   imports: [
     BrowserModule,
@@ -96,7 +102,9 @@ import { CollaboratorComponent } from './components/collaborator/collaborator.co
     ],
     entryComponents:[
       UpdatenotesComponent,
-      CollaboratorComponent
+      CollaboratorComponent,
+      LabelComponent,
+      EditlabelComponent
     ],
   providers: [SideNavService],
   bootstrap: [AppComponent]

@@ -8,8 +8,8 @@
     <mat-card style="height: 12em;"  *ngIf="open"  fxLayout="column">
         <div id="pindiv">
             <!-- <app-pin-notes id="pin"></app-pin-notes> -->
-            <a><img id="pin" src="assets/icon/unpin.svg" *ngIf="!isPinned" (click)="isPinned=!isPinned"/></a>
-            <a><img id="pin" src="assets/icon/pinned.svg" *ngIf="isPinned" (click)="isPinned=!isPinned"/></a>
+            <a><img id="pin" src="assets/icon/unpin.svg" *ngIf="!isPinned" (click)="isPinned=!isPinned && onSubmit()"/></a>
+            <a><img id="pin" src="assets/icon/pinned.svg" *ngIf="isPinned" (click)="isPinned=!isPinned && onSubmit()"/></a>
 
         </div>
           

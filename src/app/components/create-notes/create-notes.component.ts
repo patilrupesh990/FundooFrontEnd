@@ -31,6 +31,7 @@ export class CreateNotesComponent implements OnInit {
 
   onSubmit() {
     console.log("on submit called"+this.note.title);
+    this.note.isPin=this.isPinned;
     if (this.note.title) {
       console.log("inside if called");
       this.noteService.createNote(this.note, this.token).subscribe(response => {

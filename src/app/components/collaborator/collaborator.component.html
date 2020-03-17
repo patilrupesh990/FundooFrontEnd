@@ -1,0 +1,52 @@
+<div class="dialogg">
+  <div fxLayout="row" fxLayoutAlign="start center">
+    <span style="font-size:large; font-family: inherit">Collaborators</span>
+  </div>
+  <mat-divider></mat-divider>
+  <div style="height:64px" fxLayout="row" fxLayoutAlign="start center">
+    <div>
+      <!-- <img mat-card-avatar src="{{ profilePicUser }}"/> -->
+      <img src="assets/icon/profilePic.jpg" style="height: 60px;width: 60px; padding: 0px;margin: 0px;" />
+    </div>
+    <div>
+      <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap=2px>
+        <div style="font-size: large; font-weight: bold; padding-bottom: 10px;">{{ownerName}}(owner)</div>
+      </div>
+      <div style="font-size: medium;">{{userName}}</div>
+    </div>
+  </div>
+  <div style="width: 82%" *ngFor="let user of users">
+    <div fxLayout="row" fxLayoutAlign="start center">
+      <div style=" padding-top:10px ">
+        <button mat-mini-fab> {{ user.firstname | slice:0:1}}</button>
+      </div>
+      <div>
+        <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap=6px style=" width: 356px;">
+          <div style=" padding-left:15px; padding-top: 10px;">{{user.fname}}</div>
+          <div>{{user.lastname}}</div>
+        </div>
+        <div style=" padding-left:15px; width: 85%;">{{user.email}}</div>
+      </div>
+      <div><button mat-icon-button>
+          <mat-icon (click)="removeColab(user.id)">clear</mat-icon>
+        </button></div>
+    </div>
+  </div>
+
+  <div style="margin-top: 10px;" fxLayout="row" fxLayout="row" fxLayoutAlign="start center">
+    <div>
+      <mat-icon matPrefix style="margin-right:10px;">person_add</mat-icon>
+    </div>
+    <div><input class="input" matInput placeholder="person or email to share with" #email required></div>
+
+    <div>
+      <button mat-icon-button (click)="writeEmail(email.value)">
+        <mat-icon>done</mat-icon>
+      </button>
+    </div>
+  </div>
+  <div class="colab" fxLayout="row" fxLayoutAlign="end center">
+    <button mat-button mat-dialog-close>Cancel</button>
+  </div>
+
+</div>

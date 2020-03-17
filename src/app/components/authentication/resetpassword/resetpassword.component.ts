@@ -44,7 +44,6 @@ export class ResetpasswordComponent implements OnInit {
     this.spinner.show();
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.token = params.get('token');
-    
     }),
     this.resetpasswordForm = this.formBuilder.group({
       'password': [this.user.password, [Validators.required]],
