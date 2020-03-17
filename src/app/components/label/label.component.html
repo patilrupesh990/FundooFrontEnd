@@ -1,4 +1,19 @@
-<div *ngFor="let label of labels">
-<mat-checkbox></mat-checkbox>
-<label mat-menu-item style="display:inline" (click)="onCheckedAddLabel(label.labelId,label.noteId)">{{label.labelName}}</label>
+<div>
+    <div class="search-label">
+        <div>
+        <input type="text" placeholder="Search" #labelInput  [ngModel]="lname" >
+        </div>
+        <div >
+           <a><img  style="height: 40px; width: 40px; padding-left: 10px;" src="assets/icon/icons8-add-64.png"
+            (click)="onClickCreateLabel(labelInput.value)"    matTooltip="Create Label"></a>
+        </div>
+    </div>
+    <div class="label-list">
+        <div *ngFor="let label of labels">
+            <mat-checkbox></mat-checkbox>
+            <!-- <label mat-menu-item style="display:inline" (click)="onCheckedAddLabel(label.labelId,label.noteId)">{{label.labelName}}</label> -->
+            <label mat-menu-item style="display:inline"
+                (click)="onCheckedAddLabel(label.labelId,label.noteId)">{{label.labelName}}</label>
+        </div>
+    </div>
 </div>
